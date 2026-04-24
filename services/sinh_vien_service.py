@@ -1,10 +1,11 @@
+from typing import Optional
 from models.sinh_vien import SinhVien
 from services.base_services import BaseService
 
 
 class SinhVienService(BaseService):
     def __init__(self, duong_dan_file:str = "data/sinh_vien.json"):
-        super.__init__(duong_dan_file)
+        super().__init__(duong_dan_file)
 
     def _dict_sang_doi_tuong(self, data: dict) -> "SinhVien":
         return SinhVien.from_dict(data)
@@ -21,7 +22,7 @@ class SinhVienService(BaseService):
         self._tai_du_lieu()
         return [sv for sv in self._cache if sv.ma_lop.upper() == ma_lop.upper()]
 
-    def tim_theo_email(self, email:str) -> "SinhVien" | None:
+    def tim_theo_email(self, email:str) -> Optional["SinhVien"]:
         self._tai_du_lieu()
         for sv in self._cache:
             if sv.email == email.lower():

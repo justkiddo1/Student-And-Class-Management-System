@@ -4,8 +4,10 @@ import tkinter as tk
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from services import (sinh_vien_service, lop_hoc_service,
-                      diem_so_service, nguoi_dung_service)
+from services.sinh_vien_service import SinhVienService as sinh_vien_service
+from services.lop_hoc_service import LopHocService as lop_hoc_service
+from services.diem_so_service import DiemSoService as diem_so_service
+from services.nguoi_dung_service import NguoiDungService as nguoi_dung_service
 from views.login_view import LoginView
 from views.main_view import MainView
 

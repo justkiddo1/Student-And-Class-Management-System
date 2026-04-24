@@ -1,3 +1,4 @@
+from typing import Optional
 from models.nguoi_dung import NguoiDung
 from services.base_services import BaseService
 
@@ -6,7 +7,7 @@ class NguoiDungService(BaseService):
 
     def __init__(self, duong_dan_file: str = "data/nguoi_dung.json"):
         super().__init__(duong_dan_file)
-        self._nguoi_dung_hien_tai: NguoiDung | None = None
+        self._nguoi_dung_hien_tai: Optional[NguoiDung] = None
         self._khoi_tao_admin_mac_dinh()
 
     def _dict_sang_doi_tuong(self, data: dict) -> NguoiDung:
@@ -46,7 +47,7 @@ class NguoiDungService(BaseService):
         return self._nguoi_dung_hien_tai is not None
 
     @property
-    def nguoi_dung_hien_tai(self) -> NguoiDung | None:
+    def nguoi_dung_hien_tai(self) -> Optional[NguoiDung]:
         return self._nguoi_dung_hien_tai
 
     def kiem_tra_quyen(self, hanh_dong: str) -> bool:

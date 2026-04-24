@@ -15,7 +15,6 @@ class LoginView(tk.Toplevel):
         self.resizable(False, False)
         self.configure(bg=BG_APP)
 
-        # Căn giữa màn hình
         w, h = 440, 520
         sw = self.winfo_screenwidth()
         sh = self.winfo_screenheight()
@@ -26,7 +25,6 @@ class LoginView(tk.Toplevel):
         self.bind("<Return>", lambda e: self._dang_nhap())
 
     def _build_ui(self):
-        # ── Banner trên ──────────────────────────────────────────────
         banner = tk.Frame(self, bg=BG_SIDEBAR, height=160)
         banner.pack(fill="x")
         banner.pack_propagate(False)
@@ -39,7 +37,6 @@ class LoginView(tk.Toplevel):
         tk.Label(banner, text="Student Management System",
                  font=FONT_SMALL, bg=BG_SIDEBAR, fg="#90CAF9").pack()
 
-        # ── Form đăng nhập ───────────────────────────────────────────
         form = tk.Frame(self, bg=BG_APP, padx=40)
         form.pack(fill="both", expand=True)
 
@@ -48,26 +45,21 @@ class LoginView(tk.Toplevel):
         tk.Label(form, text="Nhập thông tin để tiếp tục", font=FONT_SMALL,
                  fg=TEXT_MUTED, bg=BG_APP).pack(anchor="w", pady=(0, 20))
 
-        # Tên đăng nhập
         self._build_field(form, "Tên đăng nhập", "Nhập tên đăng nhập...", "user")
         self.ent_user = self._last_entry
         tk.Frame(form, height=10, bg=BG_APP).pack()
 
-        # Mật khẩu
         self._build_field(form, "Mật khẩu", "Nhập mật khẩu...", "lock", show="•")
         self.ent_pass = self._last_entry
         tk.Frame(form, height=20, bg=BG_APP).pack()
 
-        # Nút đăng nhập
         AppButton(form, text="Đăng nhập", style="primary",
                   command=self._dang_nhap).pack(fill="x", ipady=4)
 
-        # Lỗi
         self.lbl_err = tk.Label(form, text="", font=FONT_SMALL,
                                 fg=DANGER, bg=BG_APP, wraplength=360)
         self.lbl_err.pack(pady=(8, 0))
 
-        # Gợi ý mặc định
         tk.Label(form, text="Mặc định: admin / admin123",
                  font=FONT_SMALL, fg=TEXT_MUTED, bg=BG_APP).pack(pady=(16, 0))
 

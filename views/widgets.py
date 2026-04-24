@@ -19,14 +19,14 @@ class AppButton(tk.Button):
             text = label, bg=s["bg"], fg=s["fg"],
             font = FONT_BOLD, relief="flat",cursor="hand2",
             padx = 14, pady = 6, bd =0,
-            activatebackground=s["hover"],activeforeground=s["fg"],
+            activebackground=s["hover"], activeforeground=s["fg"],
         )
         if width:
             cfg["width"] = width
         if command:
             cfg["command"] = command
         cfg.update(kwargs)
-        super.__init__(parent,**cfg)
+        super().__init__(parent,**cfg)
         self._hover_bg = s["hover"]
         self._normal_bg = s["bg"]
         self.bind("<Enter>", lambda e: self.config(bg=self._hover_bg))

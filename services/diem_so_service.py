@@ -1,3 +1,4 @@
+from typing import Optional
 from models.diem_so import DiemSo
 from services.base_services import BaseService
 
@@ -12,7 +13,7 @@ class DiemSoService(BaseService):
     def _khoa_chinh(self) -> str:
         return "_khoa_to_hop"
 
-    def tim_diem(self, mssv: str, ma_lop: str) -> DiemSo | None:
+    def tim_diem(self, mssv: str, ma_lop: str) -> Optional[DiemSo]:
         self._tai_du_lieu()
         for ds in self._cache:
             if ds.mssv == mssv.upper() and ds.ma_lop == ma_lop.upper():
