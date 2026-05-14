@@ -44,56 +44,51 @@ class MutedLabel(tk.Label):
         super().__init__(parent, text=text, font=FONT_SMALL, fg=TEXT_MUTED, bg=bg, **kw)
 
 
-# ── PlaceholderEntry ─────────────────────────────────────────────────────────
 class PlaceholderEntry(tk.Entry):
-    def __init__(self, parent, placeholder="", show_char="", **kw):
-        super().__init__(parent, font=FONT_NORMAL, relief="flat", bd=0, **kw)
+    def __init__(self, parent, placeholder="", show_char="", **kwargs):
+        super().__init__(parent, font=FONT_NORMAL, relief="flat", bd=0, **kwargs)
+
         self._placeholder = placeholder
         self._show_char = show_char
-        self._is_placeholder = True
-        self._set_placeholder()
+        self._is_placeholder_active = True
 
+        self._setup_placeholder()
+
+        # Bind events
         self.bind("<FocusIn>", self._on_focus_in)
         self.bind("<FocusOut>", self._on_focus_out)
+        self.bind("<KeyPress>", self._on_key_press)  # Thêm cái này
 
-    def _set_placeholder(self):
+    def _setup_placeholder(self):
         self.config(fg=TEXT_MUTED, show="")
         self.delete(0, tk.END)
         self.insert(0, self._placeholder)
-        self._is_placeholder = True
+        self._is_placeholder_active = True
 
-    def _activate(self, prefill=""):
-        self.config(state="normal", fg=TEXT_MAIN,
-                    show=self._show_char)
-        self.delete(0, tk.END)
-        if prefill:
-            self.insert(0, prefill)
-        self._active = True
-
-    def _on_focus_in(self, event):
-        if self._is_placeholder:
+    def _on_focus_in(self, event=None):
+        if self._is_placeholder_active:
             self.delete(0, tk.END)
-            self.config(fg=TEXT_MAIN,
-                       show=self._show_char if self._show_char else "")
-            self._is_placeholder = False
+            self.config(fg=TEXT_MAIN, show=self._show_char)
+            self._is_placeholder_active = False
 
-    def _on_focus_out(self, event):
+    def _on_focus_out(self, event=None):
         if not self.get().strip():
-            self._set_placeholder()
+            self._setup_placeholder()
+
+    def _on_key_press(self, event=None):
+        if self._is_placeholder_active:
+            self.delete(0, tk.END)
+            self.config(fg=TEXT_MAIN, show=self._show_char)
+            self._is_placeholder_active = False
 
     def get_value(self):
-        return "" if self._is_placeholder else self.get().strip()
-
-    def set_value(self, v: str):
-        if v:
-            self._activate(prefill=str(v))
-        else:
-            self._show_placeholder()
+        if self._is_placeholder_active:
+            return ""
+        return self.get().strip()
 
     def clear(self):
         self.delete(0, tk.END)
-        self._set_placeholder()
-
+        self._setup_placeholder()
 
 # ── Card ─────────────────────────────────────────────────────────────────────
 class Card(tk.Frame):

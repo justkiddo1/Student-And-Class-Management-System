@@ -1,6 +1,5 @@
-# views/lop_hoc_view.py
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, ttk
 from views.theme import *
 from views.widgets import AppButton, Card, DataTable, SearchBar, HeadingLabel, FormField
 from models.lop_hoc import LopHoc
@@ -65,23 +64,38 @@ class LopHocView(tk.Frame):
         right = Card(parent, padx=16, pady=16)
         right.pack(side="right", fill="y")
         right.pack_propagate(False)
-        right.config(width=280)
+        right.config(width=340)
+
         self._form_title = HeadingLabel(right, "Thêm lớp học", bg=BG_CARD)
-        self._form_title.pack(anchor="w", pady=(0, 10))
-        self._f_malop  = FormField(right, "Mã lớp",      "VD: CNTT01",       required=True)
-        self._f_tenmon = FormField(right, "Tên môn",      "Lập trình Python", required=True)
-        self._f_mamon  = FormField(right, "Mã môn",       "VD: IT101",        required=True)
-        self._f_gv     = FormField(right, "Giảng viên",   "Họ tên GV",        required=True)
-        self._f_siso   = FormField(right, "Sĩ số tối đa", "50")
-        self._f_phong  = FormField(right, "Phòng học",    "VD: P201")
-        self._f_lich   = FormField(right, "Lịch học",     "Thứ 2, 7:30-9:30")
-        for f in [self._f_malop, self._f_tenmon, self._f_mamon,
-                  self._f_gv, self._f_siso, self._f_phong, self._f_lich]:
-            f.pack(fill="x", pady=3)
+        self._form_title.pack(anchor="w", pady=(0, 12))
+
+        self._f_malop = FormField(right, "Mã lớp *", "VD: CNTT01", required=True)
+        self._f_tenmon = FormField(right, "Tên môn *", "Lập trình Python", required=True)
+        self._f_mamon = FormField(right, "Mã môn *", "VD: IT001", required=True)
+        self._f_gv = FormField(right, "Giảng viên *", "Phan Thị Ngọc Mai", required=True)
+        self._f_siso = FormField(right, "Sĩ số tối đa", "30")
+        self._f_phong = FormField(right, "Phòng học", "A105")
+
+        # Lịch học - Combobox
+        tk.Label(right, text="Lịch học *", font=FONT_SMALL, fg=TEXT_MUTED, bg=BG_CARD).pack(anchor="w", pady=(12, 2))
+        self._lich_var = tk.StringVar()
+        self._cb_lich = ttk.Combobox(right, textvariable=self._lich_var, font=FONT_NORMAL,
+                                     state="readonly", width=30)
+        self._cb_lich["values"] = [
+            "Tiết 1-3 (7h00 - 9h20)",
+            "Tiết 4-6 (9h45 - 11h50)",
+            "Tiết 7-9 (12h30 - 14h45)",
+            "Tiết 10-12 (15h00 - 17h20)",
+            "Tiết 13-15 (18h20 - 20h20)"
+        ]
+        self._cb_lich.pack(fill="x", pady=(0, 20))
+
+        # Nút Lưu - Hủy
         btn_row = tk.Frame(right, bg=BG_CARD)
-        btn_row.pack(fill="x", pady=(10, 0))
+        btn_row.pack(fill="x", pady=(0, 0))
+
         AppButton(btn_row, "Lưu", style="primary", icon=ICON["save"],
-                  command=self._luu).pack(side="left", fill="x", expand=True, padx=(0, 4))
+                  command=self._luu).pack(side="left", fill="x", expand=True, padx=(0, 8))
         AppButton(btn_row, "Hủy", style="ghost",
                   command=self._huy).pack(side="left", fill="x", expand=True)
 
@@ -136,41 +150,43 @@ class LopHocView(tk.Frame):
 
     def _luu(self):
         if self._mode is None:
-            self._status.info("Vui lòng bấm 'Thêm mới' hoặc chọn lớp rồi 'Sửa'.")
+            self._status.info("Vui lòng bấm 'Thêm mới' trước.")
             return
 
         try:
-            siso = int(self._f_siso.get() or 50)
+            siso = int(self._f_siso.get() or 30)
         except ValueError:
             self._status.err("Sĩ số phải là số nguyên.")
             return
 
+        lich_hoc = self._lich_var.get().strip()
+        if not lich_hoc:
+            self._status.err("Vui lòng chọn lịch học.")
+            return
+
         lop = LopHoc(
-            ma_lop=self._f_malop.get(),
-            ten_mon=self._f_tenmon.get(),
-            ma_mon=self._f_mamon.get(),
-            giang_vien=self._f_gv.get(),
+            ma_lop=self._f_malop.get().strip(),
+            ten_mon=self._f_tenmon.get().strip(),
+            ma_mon=self._f_mamon.get().strip(),
+            giang_vien=self._f_gv.get().strip(),
             si_so_toi_da=siso,
-            phong_hoc=self._f_phong.get(),
-            lich_hoc=self._f_lich.get(),
+            phong_hoc=self._f_phong.get().strip(),
+            lich_hoc=lich_hoc,
         )
 
         if self._mode == "add":
             ok, msg = self._lop_svc.them(lop)
         else:
-            lop_cu = self._lop_svc.tim_theo_khoa(lop.ma_lop)
+            # Cập nhật
+            lop_cu = self._lop_svc.tim_theo_ma(lop.ma_lop)  # hoặc tim_theo_khoa
             if lop_cu:
                 lop.danh_sach_mssv = lop_cu.danh_sach_mssv
             ok, msg = self._lop_svc.cap_nhat(lop)
 
         if ok:
-            self._status.ok(msg)
+            self._status.ok("✅ Lưu thành công!")
             self._tai_du_lieu()
-            self._mode = None
-            for f in [self._f_malop, self._f_tenmon, self._f_mamon,
-                      self._f_gv, self._f_siso, self._f_phong, self._f_lich]:
-                f.clear()
-            self._f_malop.enable()
+            self._huy()  # Reset form
         else:
             self._status.err(msg)
 

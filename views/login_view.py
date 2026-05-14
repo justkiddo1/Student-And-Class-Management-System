@@ -87,7 +87,9 @@ class LoginView(tk.Toplevel):
     # ── Logic ────────────────────────────────────────────────────────
     def _dang_nhap(self):
         ten = self.ent_user.get_value()
-        mk  = self.ent_pass.get_value()
+        mk = self.ent_pass.get_value()
+
+        print(f"DEBUG: Tên = '{ten}', Mật khẩu = '{mk}'")
 
         if not ten or not mk:
             self.lbl_err.config(text="Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.")
