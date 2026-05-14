@@ -10,19 +10,16 @@ class DashboardView(tk.Frame):
         super().__init__(parent, bg=BG_APP)
         self._svcs = services
         self._on_navigate = on_navigate
-        # Khởi tạo external service (API + Crawl)
         from services.api_service import ExternalDataService
         self._ext_svc = ExternalDataService()
         self._build_ui()
 
     def _build_ui(self):
-        # ── Tiêu đề ─────────────────────────────────────────────────
         tk.Label(self, text="Dashboard", font=FONT_TITLE,
                  fg=TEXT_MAIN, bg=BG_APP).pack(anchor="w")
         tk.Label(self, text="Tổng quan hệ thống quản lý",
                  font=FONT_SMALL, fg=TEXT_MUTED, bg=BG_APP).pack(anchor="w", pady=(0, 16))
 
-        # ── Thẻ thống kê ─────────────────────────────────────────────
         cards_frame = tk.Frame(self, bg=BG_APP)
         cards_frame.pack(fill="x", pady=(0, 16))
 
@@ -35,7 +32,6 @@ class DashboardView(tk.Frame):
         for i, (icon, label, value, color, tab) in enumerate(stats):
             self._make_stat_card(cards_frame, icon, label, value, color, tab, i)
 
-        # ── Hai cột dưới ─────────────────────────────────────────────
         row2 = tk.Frame(self, bg=BG_APP)
         row2.pack(fill="both", expand=True)
 
@@ -54,9 +50,8 @@ class DashboardView(tk.Frame):
         tk.Label(card, text=value, font=(FONT_FAMILY, 26, "bold"),
                  bg=color, fg=TEXT_WHITE).pack(anchor="w")
         tk.Label(card, text=label, font=FONT_SMALL,
-                 bg=color, fg="rgba(255,255,255,0.8)").pack(anchor="w")
+                 bg=color, fg="#FFFFFF").pack(anchor="w")
 
-        # Click để chuyển tab
         for w in card.winfo_children() + [card]:
             w.bind("<Button-1>", lambda e, t=tab: self._on_navigate and self._on_navigate(t))
 

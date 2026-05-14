@@ -8,13 +8,13 @@ from models.diem_so import DiemSo
 
 class DiemSoView(tk.Frame):
     COLS = [
-        ("mssv",  "MSSV",       90,  "center"),
-        ("cc",    "Chuyên cần", 90,  "center"),
-        ("gk",    "Giữa kỳ",   90,  "center"),
-        ("ck",    "Cuối kỳ",   90,  "center"),
-        ("tk",    "Tổng kết",  90,  "center"),
-        ("xl",    "Xếp loại",  90,  "center"),
-        ("kq",    "Kết quả",   80,  "center"),
+        ("mssv", "MSSV",       90,  "center"),
+        ("cc",   "Chuyên cần", 90,  "center"),
+        ("gk",   "Giữa kỳ",   90,  "center"),
+        ("ck",   "Cuối kỳ",   90,  "center"),
+        ("tk",   "Tổng kết",  90,  "center"),
+        ("xl",   "Xếp loại",  90,  "center"),
+        ("kq",   "Kết quả",   80,  "center"),
     ]
 
     def __init__(self, parent, services, statusbar):
@@ -35,7 +35,6 @@ class DiemSoView(tk.Frame):
         AppButton(hdr, "Xuất Excel bảng điểm", style="outline",
                   icon=ICON["export"], command=self._xuat_excel).pack(side="right")
 
-        # Chọn lớp
         lop_frame = tk.Frame(self, bg=BG_APP)
         lop_frame.pack(fill="x", pady=(0, 8))
         tk.Label(lop_frame, text="Chọn lớp:", font=FONT_BOLD,
@@ -83,10 +82,10 @@ class DiemSoView(tk.Frame):
         right.config(width=240)
         self._form_title = HeadingLabel(right, "Nhập điểm", bg=BG_CARD)
         self._form_title.pack(anchor="w", pady=(0, 10))
-        self._f_mssv = FormField(right, "MSSV",        "VD: SV001", required=True)
-        self._f_cc   = FormField(right, "Chuyên cần",  "0 - 10")
-        self._f_gk   = FormField(right, "Giữa kỳ",    "0 - 10")
-        self._f_ck   = FormField(right, "Cuối kỳ",    "0 - 10")
+        self._f_mssv = FormField(right, "MSSV",       "VD: SV001", required=True)
+        self._f_cc   = FormField(right, "Chuyên cần", "0 - 10")
+        self._f_gk   = FormField(right, "Giữa kỳ",   "0 - 10")
+        self._f_ck   = FormField(right, "Cuối kỳ",   "0 - 10")
         for f in [self._f_mssv, self._f_cc, self._f_gk, self._f_ck]:
             f.pack(fill="x", pady=4)
         btn_row = tk.Frame(right, bg=BG_CARD)
@@ -135,7 +134,7 @@ class DiemSoView(tk.Frame):
         self._form_title.config(text="Nhập điểm mới")
         for f in [self._f_mssv, self._f_cc, self._f_gk, self._f_ck]:
             f.clear()
-        self._f_mssv.entry.config(state="normal")
+        self._f_mssv.enable()
 
     def _bat_dau_sua(self):
         if not self.table.lay_hang_chon():
@@ -143,7 +142,7 @@ class DiemSoView(tk.Frame):
             return
         self._mode = "edit"
         self._form_title.config(text="Cập nhật điểm")
-        self._f_mssv.entry.config(state="disabled")
+        self._f_mssv.disable()
 
     def _parse_diem(self, val):
         try:
@@ -152,9 +151,18 @@ class DiemSoView(tk.Frame):
             return None
 
     def _luu(self):
+        if self._mode is None:
+            self._status.info("Vui lòng bấm 'Thêm điểm' hoặc chọn sinh viên rồi 'Cập nhật'.")
+            return
+
         ma_lop = self._ma_lop_hien_tai.get()
+        if not ma_lop:
+            self._status.err("Vui lòng chọn lớp trước.")
+            return
+
         ds = DiemSo(
-            mssv=self._f_mssv.get(), ma_lop=ma_lop,
+            mssv=self._f_mssv.get(),
+            ma_lop=ma_lop,
             diem_chuyen_can=self._parse_diem(self._f_cc.get()),
             diem_giua_ky=self._parse_diem(self._f_gk.get()),
             diem_cuoi_ky=self._parse_diem(self._f_ck.get()),
@@ -165,6 +173,9 @@ class DiemSoView(tk.Frame):
             self._status.ok(msg)
             self._tai_du_lieu()
             self._mode = None
+            for f in [self._f_mssv, self._f_cc, self._f_gk, self._f_ck]:
+                f.clear()
+            self._f_mssv.enable()
         else:
             self._status.err(msg)
 
@@ -184,7 +195,9 @@ class DiemSoView(tk.Frame):
 
     def _huy(self):
         self._mode = None
-        self._f_mssv.entry.config(state="normal")
+        for f in [self._f_mssv, self._f_cc, self._f_gk, self._f_ck]:
+            f.clear()
+        self._f_mssv.enable()
 
     def _xuat_excel(self):
         ma_lop = self._ma_lop_hien_tai.get()

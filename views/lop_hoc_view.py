@@ -8,13 +8,13 @@ from models.lop_hoc import LopHoc
 
 class LopHocView(tk.Frame):
     COLS = [
-        ("ma_lop",    "Mã lớp",    90,  "center"),
-        ("ten_mon",   "Tên môn",   200, "w"),
-        ("ma_mon",    "Mã môn",    80,  "center"),
-        ("gv",        "Giảng viên",160, "w"),
-        ("si_so",     "Sĩ số",     70,  "center"),
-        ("phong",     "Phòng",     70,  "center"),
-        ("lich",      "Lịch học",  130, "w"),
+        ("ma_lop",  "Mã lớp",    90,  "center"),
+        ("ten_mon", "Tên môn",   200, "w"),
+        ("ma_mon",  "Mã môn",    80,  "center"),
+        ("gv",      "Giảng viên",160, "w"),
+        ("si_so",   "Sĩ số",     70,  "center"),
+        ("phong",   "Phòng",     70,  "center"),
+        ("lich",    "Lịch học",  130, "w"),
     ]
 
     def __init__(self, parent, services, statusbar):
@@ -68,13 +68,13 @@ class LopHocView(tk.Frame):
         right.config(width=280)
         self._form_title = HeadingLabel(right, "Thêm lớp học", bg=BG_CARD)
         self._form_title.pack(anchor="w", pady=(0, 10))
-        self._f_malop  = FormField(right, "Mã lớp",     "VD: CNTT01", required=True)
-        self._f_tenmon = FormField(right, "Tên môn",    "Lập trình Python", required=True)
-        self._f_mamon  = FormField(right, "Mã môn",     "VD: IT101", required=True)
-        self._f_gv     = FormField(right, "Giảng viên", "Họ tên GV", required=True)
-        self._f_siso   = FormField(right, "Sĩ số tối đa","50")
-        self._f_phong  = FormField(right, "Phòng học",  "VD: P201")
-        self._f_lich   = FormField(right, "Lịch học",   "Thứ 2, 7:30-9:30")
+        self._f_malop  = FormField(right, "Mã lớp",      "VD: CNTT01",       required=True)
+        self._f_tenmon = FormField(right, "Tên môn",      "Lập trình Python", required=True)
+        self._f_mamon  = FormField(right, "Mã môn",       "VD: IT101",        required=True)
+        self._f_gv     = FormField(right, "Giảng viên",   "Họ tên GV",        required=True)
+        self._f_siso   = FormField(right, "Sĩ số tối đa", "50")
+        self._f_phong  = FormField(right, "Phòng học",    "VD: P201")
+        self._f_lich   = FormField(right, "Lịch học",     "Thứ 2, 7:30-9:30")
         for f in [self._f_malop, self._f_tenmon, self._f_mamon,
                   self._f_gv, self._f_siso, self._f_phong, self._f_lich]:
             f.pack(fill="x", pady=3)
@@ -124,7 +124,7 @@ class LopHocView(tk.Frame):
         for f in [self._f_malop, self._f_tenmon, self._f_mamon,
                   self._f_gv, self._f_siso, self._f_phong, self._f_lich]:
             f.clear()
-        self._f_malop.entry.config(state="normal")
+        self._f_malop.enable()
 
     def _bat_dau_sua(self):
         if not self.table.lay_hang_chon():
@@ -132,20 +132,29 @@ class LopHocView(tk.Frame):
             return
         self._mode = "edit"
         self._form_title.config(text="Cập nhật lớp học")
-        self._f_malop.entry.config(state="disabled")
+        self._f_malop.disable()
 
     def _luu(self):
+        if self._mode is None:
+            self._status.info("Vui lòng bấm 'Thêm mới' hoặc chọn lớp rồi 'Sửa'.")
+            return
+
         try:
             siso = int(self._f_siso.get() or 50)
         except ValueError:
             self._status.err("Sĩ số phải là số nguyên.")
             return
+
         lop = LopHoc(
-            ma_lop=self._f_malop.get(), ten_mon=self._f_tenmon.get(),
-            ma_mon=self._f_mamon.get(), giang_vien=self._f_gv.get(),
-            si_so_toi_da=siso, phong_hoc=self._f_phong.get(),
+            ma_lop=self._f_malop.get(),
+            ten_mon=self._f_tenmon.get(),
+            ma_mon=self._f_mamon.get(),
+            giang_vien=self._f_gv.get(),
+            si_so_toi_da=siso,
+            phong_hoc=self._f_phong.get(),
             lich_hoc=self._f_lich.get(),
         )
+
         if self._mode == "add":
             ok, msg = self._lop_svc.them(lop)
         else:
@@ -153,10 +162,15 @@ class LopHocView(tk.Frame):
             if lop_cu:
                 lop.danh_sach_mssv = lop_cu.danh_sach_mssv
             ok, msg = self._lop_svc.cap_nhat(lop)
+
         if ok:
             self._status.ok(msg)
             self._tai_du_lieu()
             self._mode = None
+            for f in [self._f_malop, self._f_tenmon, self._f_mamon,
+                      self._f_gv, self._f_siso, self._f_phong, self._f_lich]:
+                f.clear()
+            self._f_malop.enable()
         else:
             self._status.err(msg)
 
@@ -175,4 +189,7 @@ class LopHocView(tk.Frame):
 
     def _huy(self):
         self._mode = None
-        self._f_malop.entry.config(state="normal")
+        for f in [self._f_malop, self._f_tenmon, self._f_mamon,
+                  self._f_gv, self._f_siso, self._f_phong, self._f_lich]:
+            f.clear()
+        self._f_malop.enable()
