@@ -86,6 +86,15 @@ class PlaceholderEntry(tk.Entry):
             return ""
         return self.get().strip()
 
+    def set_value(self, value: str):
+        self.delete(0, tk.END)
+        if value:
+            self.config(fg=TEXT_MAIN, show=self._show_char if self._show_char else "")
+            self.insert(0, value)
+            self._is_placeholder_active = False
+        else:
+            self._setup_placeholder()
+
     def clear(self):
         self.delete(0, tk.END)
         self._setup_placeholder()
@@ -222,7 +231,7 @@ class FormField(tk.Frame):
         self.entry.set_value(v)
 
     def clear(self):
-        self.entry.clear_value()
+        self.entry.clear()
         self._border.config(bg=BORDER)
 
     def enable(self):

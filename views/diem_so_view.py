@@ -38,22 +38,25 @@ class DiemSoView(tk.Frame):
         lop_frame = tk.Frame(self, bg=BG_APP)
         lop_frame.pack(fill="x", pady=(0, 8))
         tk.Label(lop_frame, text="Chọn lớp:", font=FONT_BOLD,
-                 fg=TEXT_MAIN, bg=BG_APP).pack(side="left")
+                 fg=TEXT_MAIN, bg=BG_APP).pack(side="left", padx=(0, 8))
+
         self._cb_lop = ttk.Combobox(lop_frame, textvariable=self._ma_lop_hien_tai,
                                     state="readonly", font=FONT_NORMAL, width=20)
-        self._cb_lop.pack(side="left", padx=8)
-        self._cb_lop.bind("<<ComboboxSelected>>", lambda e: self._tai_du_lieu())
+        self._cb_lop.pack(side="left")
         AppButton(lop_frame, "Xem", style="primary",
-                  command=self._tai_du_lieu).pack(side="left")
+                  command=self._tai_du_lieu).pack(side="left", padx=(8, 0))
+
         self._lbl_tk = tk.Label(lop_frame, text="", font=FONT_SMALL,
                                 fg=TEXT_MUTED, bg=BG_APP)
         self._lbl_tk.pack(side="right")
-        self._cap_nhat_cb_lop()
 
         main = tk.Frame(self, bg=BG_APP)
         main.pack(fill="both", expand=True)
+
         self._build_table(main)
         self._build_form(main)
+
+        self._cap_nhat_cb_lop()
 
     def _build_table(self, parent):
         left = tk.Frame(parent, bg=BG_APP)
@@ -98,7 +101,7 @@ class DiemSoView(tk.Frame):
     def _cap_nhat_cb_lop(self):
         ma_lops = [lop.ma_lop for lop in self._lop_svc.lay_tat_ca()]
         self._cb_lop["values"] = ma_lops
-        if ma_lops and not self._ma_lop_hien_tai.get():
+        if ma_lops:
             self._cb_lop.current(0)
             self._tai_du_lieu()
 

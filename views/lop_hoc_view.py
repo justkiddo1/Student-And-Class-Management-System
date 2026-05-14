@@ -66,20 +66,28 @@ class LopHocView(tk.Frame):
         right.pack_propagate(False)
         right.config(width=360)
 
-        # Tiêu đề form
         self._form_title = HeadingLabel(right, "Thêm lớp học", bg=BG_CARD)
         self._form_title.pack(anchor="w", pady=(0, 16))
 
-        # === Các trường nhập (FormField) ===
         self._f_malop = FormField(right, "Mã lớp *", "VD: CNTT01", required=True)
-        self._f_tenmon = FormField(right, "Tên môn *", "Lập trình Python", required=True)
-        self._f_mamon = FormField(right, "Mã môn *", "VD: IT001", required=True)
-        self._f_gv = FormField(right, "Giảng viên *", "Phan Thị Ngọc Mai", required=True)
-        self._f_siso = FormField(right, "Sĩ số tối đa", "30")
-        self._f_phong = FormField(right, "Phòng học", "A105")
+        self._f_malop.pack(fill="x", pady=(0, 8))
 
-        # === Lịch học ===
-        tk.Label(right, text="Lịch học *", font=FONT_SMALL, fg=TEXT_MUTED, bg=BG_CARD).pack(anchor="w", pady=(16, 2))
+        self._f_tenmon = FormField(right, "Tên môn *", "Lập trình Python", required=True)
+        self._f_tenmon.pack(fill="x", pady=(0, 8))
+
+        self._f_mamon = FormField(right, "Mã môn *", "VD: IT001", required=True)
+        self._f_mamon.pack(fill="x", pady=(0, 8))
+
+        self._f_gv = FormField(right, "Giảng viên *", "Phan Thị Ngọc Mai", required=True)
+        self._f_gv.pack(fill="x", pady=(0, 8))
+
+        self._f_siso = FormField(right, "Sĩ số tối đa", "30")
+        self._f_siso.pack(fill="x", pady=(0, 8))
+
+        self._f_phong = FormField(right, "Phòng học", "A105")
+        self._f_phong.pack(fill="x", pady=(0, 12))
+
+        tk.Label(right, text="Lịch học *", font=FONT_SMALL, fg=TEXT_MUTED, bg=BG_CARD).pack(anchor="w", pady=(8, 2))
         self._lich_var = tk.StringVar()
         self._cb_lich = ttk.Combobox(right, textvariable=self._lich_var, font=FONT_NORMAL,
                                      state="readonly", width=32)
@@ -137,6 +145,7 @@ class LopHocView(tk.Frame):
     def _bat_dau_them(self):
         self._mode = "add"
         self._form_title.config(text="Thêm lớp học")
+
         self._f_malop.clear()
         self._f_tenmon.clear()
         self._f_mamon.clear()
@@ -144,6 +153,7 @@ class LopHocView(tk.Frame):
         self._f_siso.clear()
         self._f_phong.clear()
         self._lich_var.set("")
+
         self._f_malop.enable()
 
     def _bat_dau_sua(self):
@@ -183,8 +193,7 @@ class LopHocView(tk.Frame):
         if self._mode == "add":
             ok, msg = self._lop_svc.them(lop)
         else:
-            # Cập nhật
-            lop_cu = self._lop_svc.tim_theo_ma(lop.ma_lop)  # hoặc tim_theo_khoa
+            lop_cu = self._lop_svc.tim_theo_ma(lop.ma_lop)
             if lop_cu:
                 lop.danh_sach_mssv = lop_cu.danh_sach_mssv
             ok, msg = self._lop_svc.cap_nhat(lop)
@@ -192,9 +201,9 @@ class LopHocView(tk.Frame):
         if ok:
             self._status.ok("✅ Lưu thành công!")
             self._tai_du_lieu()
-            self._huy()  # Reset form
+            self._huy()
         else:
-            self._status.err(msg)
+            self._status.err(msg or "Lưu thất bại")
 
     def _xoa(self):
         row = self.table.lay_hang_chon()
@@ -212,11 +221,13 @@ class LopHocView(tk.Frame):
     def _huy(self):
         self._mode = None
         self._form_title.config(text="Thêm lớp học")
+
         self._f_malop.clear()
         self._f_tenmon.clear()
         self._f_mamon.clear()
         self._f_gv.clear()
         self._f_siso.clear()
         self._f_phong.clear()
-        self._lich_var.set("")                    # Reset combobox
+        self._lich_var.set("")
+
         self._f_malop.enable()

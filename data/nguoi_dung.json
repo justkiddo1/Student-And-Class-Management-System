@@ -6,5 +6,13 @@
         "email": "admin@school.edu",
         "vai_tro": "admin",
         "kich_hoat": true
+    },
+    {
+        "ten_dang_nhap": "ngocmai",
+        "mat_khau_hash": "04402e4036075494227ddfad4d121e7dd87a1f692fac6e821606a559ff92f602",
+        "ho_ten": "Phan Thị Ngọc Mai",
+        "email": "ngocmai@edu.vn",
+        "vai_tro": "user",
+        "kich_hoat": true
     }
 ]

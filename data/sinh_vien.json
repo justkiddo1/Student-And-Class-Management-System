@@ -1,0 +1,32 @@
+[
+    {
+        "mssv": "SV001",
+        "ho_ten": "Hồ Thanh Hải",
+        "ngay_sinh": "22/07/2003",
+        "gioi_tinh": "Nam",
+        "email": "thanhhai@gmail.com",
+        "so_dien_thoai": "0900000000",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Bình Định"
+    },
+    {
+        "mssv": "SV002",
+        "ho_ten": "Trần Trí Tường",
+        "ngay_sinh": "13/05/2004",
+        "gioi_tinh": "Nam",
+        "email": "trituong@gmail.com",
+        "so_dien_thoai": "0900000000",
+        "ma_lop": "CNTT02",
+        "dia_chi": "An Giang"
+    },
+    {
+        "mssv": "SV003",
+        "ho_ten": "Đinh Thị Tuyết Chinh",
+        "ngay_sinh": "24/06/2003",
+        "gioi_tinh": "Nữ",
+        "email": "tuyetchinh@gmail.com",
+        "so_dien_thoai": "0900000000",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Dak Lak"
+    }
+]

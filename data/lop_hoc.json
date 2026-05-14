@@ -1,0 +1,68 @@
+[
+    {
+        "ma_lop": "CNTT01",
+        "ten_mon": "Lập trình Python",
+        "ma_mon": "IT001",
+        "giang_vien": "Phan Thị Ngọc Mai",
+        "si_so_toi_da": 30,
+        "phong_hoc": "A105",
+        "lich_hoc": "Tiết 7-9 (12h30 - 14h45)",
+        "danh_sach_mssv": [
+            "SV003"
+        ]
+    },
+    {
+        "ma_lop": "CNTT02",
+        "ten_mon": "Công nghệ .NET",
+        "ma_mon": "IT002",
+        "giang_vien": "Lâm Thị Họa Mi",
+        "si_so_toi_da": 35,
+        "phong_hoc": "A211",
+        "lich_hoc": "Tiết 4-6 (9h45 - 11h50)",
+        "danh_sach_mssv": [
+            "SV002"
+        ]
+    },
+    {
+        "ma_lop": "CNTT03",
+        "ten_mon": "Cấu trúc rời rạc",
+        "ma_mon": "IT003",
+        "giang_vien": "Vũ Văn Vinh",
+        "si_so_toi_da": 35,
+        "phong_hoc": "A307",
+        "lich_hoc": "Tiết 1-3 (7h00 - 9h20)",
+        "danh_sach_mssv": [
+            "SV001"
+        ]
+    },
+    {
+        "ma_lop": "CNTT04",
+        "ten_mon": "Lập trình di động",
+        "ma_mon": "IT004",
+        "giang_vien": "Phan Thanh Truyền",
+        "si_so_toi_da": 36,
+        "phong_hoc": "A211",
+        "lich_hoc": "Tiết 7-9 (12h30 - 14h45)",
+        "danh_sach_mssv": []
+    },
+    {
+        "ma_lop": "CNTT05",
+        "ten_mon": "Lập trình mạng",
+        "ma_mon": "IT005",
+        "giang_vien": "Ngô Quốc Huy",
+        "si_so_toi_da": 50,
+        "phong_hoc": "B401",
+        "lich_hoc": "Tiết 10-12 (15h00 - 17h20)",
+        "danh_sach_mssv": []
+    },
+    {
+        "ma_lop": "CNTT06",
+        "ten_mon": "Bằng chứng số",
+        "ma_mon": "IT006",
+        "giang_vien": "Nguyễn Thị Hồng Thảo",
+        "si_so_toi_da": 32,
+        "phong_hoc": "A102",
+        "lich_hoc": "Tiết 4-6 (9h45 - 11h50)",
+        "danh_sach_mssv": []
+    }
+]
