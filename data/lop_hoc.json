@@ -43,7 +43,9 @@
         "si_so_toi_da": 36,
         "phong_hoc": "A211",
         "lich_hoc": "Tiết 7-9 (12h30 - 14h45)",
-        "danh_sach_mssv": []
+        "danh_sach_mssv": [
+            "SV004"
+        ]
     },
     {
         "ma_lop": "CNTT05",

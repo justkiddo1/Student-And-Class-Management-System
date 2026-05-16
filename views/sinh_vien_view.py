@@ -9,21 +9,21 @@ from models.sinh_vien import SinhVien
 
 class SinhVienView(tk.Frame):
     COLS = [
-        ("mssv", "MSSV", 90, "center"),
-        ("ho_ten", "Họ và tên", 180, "w"),
-        ("ngay_sinh", "Ngày sinh", 90, "center"),
-        ("gioi_tinh", "Giới tính", 75, "center"),
-        ("ma_lop", "Lớp", 80, "center"),
-        ("email", "Email", 180, "w"),
-        ("sdt", "Số ĐT", 105, "center"),
+        ("mssv",      "MSSV",       90,  "center"),
+        ("ho_ten",    "Họ và tên",  180, "w"),
+        ("ngay_sinh", "Ngày sinh",  90,  "center"),
+        ("gioi_tinh", "Giới tính",  75,  "center"),
+        ("ma_lop",    "Lớp",        80,  "center"),
+        ("email",     "Email",      180, "w"),
+        ("sdt",       "Số ĐT",      105, "center"),
     ]
 
     def __init__(self, parent, services, statusbar):
         super().__init__(parent, bg=BG_APP)
-        self._sv_svc = services["sv"]
+        self._sv_svc  = services["sv"]
         self._lop_svc = services["lop"]
-        self._status = statusbar
-        self._mode = None  # "add" | "edit"
+        self._status  = statusbar
+        self._mode    = None
         self._build_ui()
         self._tai_du_lieu()
 
@@ -32,9 +32,9 @@ class SinhVienView(tk.Frame):
         hdr.pack(fill="x", pady=(0, 12))
         tk.Label(hdr, text="Quản lý Sinh viên", font=FONT_TITLE,
                  fg=TEXT_MAIN, bg=BG_APP).pack(side="left")
-        AppButton(hdr, "Xuất CSV", style="outline", icon=ICON["export"],
+        AppButton(hdr, "Xuất CSV",   style="outline", icon=ICON["export"],
                   command=self._xuat_csv).pack(side="right", padx=(4, 0))
-        AppButton(hdr, "Nhập CSV", style="outline", icon=ICON["import"],
+        AppButton(hdr, "Nhập CSV",   style="outline", icon=ICON["import"],
                   command=self._nhap_csv).pack(side="right", padx=4)
         AppButton(hdr, "Xuất Excel", style="outline", icon=ICON["export"],
                   command=self._xuat_excel).pack(side="right", padx=4)
@@ -65,6 +65,7 @@ class SinhVienView(tk.Frame):
     def _build_table(self, parent):
         left = tk.Frame(parent, bg=BG_APP)
         left.pack(side="left", fill="both", expand=True, padx=(0, 8))
+
         tbl_frame = tk.Frame(left, bg=BG_APP)
         tbl_frame.pack(fill="both", expand=True)
         self.table = DataTable(tbl_frame, columns=self.COLS, height=18)
@@ -72,15 +73,16 @@ class SinhVienView(tk.Frame):
         self.table.pack(side="left", fill="both", expand=True)
         sb.pack(side="right", fill="y")
         self.table.bind("<<TreeviewSelect>>", self._on_chon_hang)
+
         btn_row = tk.Frame(left, bg=BG_APP)
         btn_row.pack(fill="x", pady=(8, 0))
         AppButton(btn_row, "Thêm mới", style="primary", icon=ICON["add"],
                   command=self._bat_dau_them).pack(side="left", padx=(0, 6))
-        AppButton(btn_row, "Sửa", style="outline", icon=ICON["edit"],
+        AppButton(btn_row, "Sửa",      style="outline", icon=ICON["edit"],
                   command=self._bat_dau_sua).pack(side="left", padx=(0, 6))
-        AppButton(btn_row, "Xóa", style="danger", icon=ICON["delete"],
+        AppButton(btn_row, "Xóa",      style="danger",  icon=ICON["delete"],
                   command=self._xoa).pack(side="left")
-        AppButton(btn_row, "Làm mới", style="ghost", icon=ICON["refresh"],
+        AppButton(btn_row, "Làm mới",  style="ghost",   icon=ICON["refresh"],
                   command=self._tai_du_lieu).pack(side="right")
         self._lbl_count = tk.Label(btn_row, text="", font=FONT_SMALL,
                                    fg=TEXT_MUTED, bg=BG_APP)
@@ -92,15 +94,20 @@ class SinhVienView(tk.Frame):
         right.pack_propagate(False)
         right.config(width=280)
 
-        self._form_title = HeadingLabel(right, "Thêm sinh viên", bg=BG_CARD)
-        self._form_title.pack(anchor="w", pady=(0, 12))
+        self._form_title = HeadingLabel(right, "Chi tiết sinh viên", bg=BG_CARD)
+        self._form_title.pack(anchor="w", pady=(0, 6))
 
-        self._f_mssv = FormField(right, "MSSV", "VD: SV001", required=True)
-        self._f_hoten = FormField(right, "Họ và tên", "Nguyễn Văn A", required=True)
-        self._f_ns = FormField(right, "Ngày sinh", "DD/MM/YYYY", required=True)
-        self._f_email = FormField(right, "Email", "email@gmail.com", required=True)
-        self._f_sdt = FormField(right, "Số điện thoại", "0xxxxxxxxx", required=True)
-        self._f_diachi = FormField(right, "Địa chỉ", "Tùy chọn")
+        self._lbl_hint = tk.Label(right,
+            text='Bấm "Thêm mới" hoặc chọn sinh viên\nrồi bấm "Sửa" để chỉnh sửa.',
+            font=FONT_SMALL, fg=TEXT_MUTED, bg=BG_CARD, justify="left")
+        self._lbl_hint.pack(anchor="w", pady=(0, 10))
+
+        self._f_mssv   = FormField(right, "MSSV",           "VD: SV001",      required=True)
+        self._f_hoten  = FormField(right, "Họ và tên",      "Nguyễn Văn A",   required=True)
+        self._f_ns     = FormField(right, "Ngày sinh",      "DD/MM/YYYY",     required=True)
+        self._f_email  = FormField(right, "Email",          "email@gmail.com", required=True)
+        self._f_sdt    = FormField(right, "Số điện thoại",  "0xxxxxxxxx",     required=True)
+        self._f_diachi = FormField(right, "Địa chỉ",        "Tùy chọn")
 
         for f in [self._f_mssv, self._f_hoten, self._f_ns,
                   self._f_email, self._f_sdt, self._f_diachi]:
@@ -111,16 +118,20 @@ class SinhVienView(tk.Frame):
         self._gt_var = tk.StringVar(value="Nam")
         gt_frame = tk.Frame(right, bg=BG_CARD)
         gt_frame.pack(anchor="w")
+        self._rb_gt = []
         for g in ("Nam", "Nữ"):
-            tk.Radiobutton(gt_frame, text=g, variable=self._gt_var,
-                           value=g, font=FONT_SMALL, bg=BG_CARD,
-                           fg=TEXT_MAIN, activebackground=BG_CARD).pack(side="left")
+            rb = tk.Radiobutton(gt_frame, text=g, variable=self._gt_var,
+                                value=g, font=FONT_SMALL, bg=BG_CARD,
+                                fg=TEXT_MAIN, activebackground=BG_CARD,
+                                state="disabled")
+            rb.pack(side="left")
+            self._rb_gt.append(rb)
 
         tk.Label(right, text="Lớp *", font=FONT_SMALL,
                  fg=TEXT_MUTED, bg=BG_CARD).pack(anchor="w", pady=(8, 0))
         self._lop_var = tk.StringVar()
         self._cb_lop = ttk.Combobox(right, textvariable=self._lop_var,
-                                    font=FONT_SMALL, state="readonly")
+                                    font=FONT_SMALL, state="disabled")
         self._cb_lop.pack(fill="x", pady=(2, 10))
 
         btn_row = tk.Frame(right, bg=BG_CARD)
@@ -132,8 +143,29 @@ class SinhVienView(tk.Frame):
                   command=self._huy).pack(side="left", fill="x", expand=True)
 
         self._cap_nhat_cb_lop()
+        # Khóa form khi mới mở
+        self._khoa_form()
 
-    #  DATA
+    # Khóa / Mở form
+    def _khoa_form(self):
+        for f in [self._f_mssv, self._f_hoten, self._f_ns,
+                  self._f_email, self._f_sdt, self._f_diachi]:
+            f.entry.config(state="disabled")
+        for rb in self._rb_gt:
+            rb.config(state="disabled")
+        self._cb_lop.config(state="disabled")
+        self._lbl_hint.pack(anchor="w", pady=(0, 10))
+
+    def _mo_form(self):
+        for f in [self._f_hoten, self._f_ns,
+                  self._f_email, self._f_sdt, self._f_diachi]:
+            f.entry.config(state="normal")
+        for rb in self._rb_gt:
+            rb.config(state="normal")
+        self._cb_lop.config(state="readonly")
+        self._lbl_hint.pack_forget()
+
+    # Dữ liệu
     def _tai_du_lieu(self, ds=None):
         if ds is None:
             ds = self._sv_svc.lay_tat_ca()
@@ -157,11 +189,11 @@ class SinhVienView(tk.Frame):
         ma_lops_form = [lop.ma_lop for lop in self._lop_svc.lay_tat_ca()]
         self._cb_lop["values"] = ma_lops_form
         if ma_lops_form and not self._lop_var.get():
-            self._cb_lop.current(0)
+            self._lop_var.set(ma_lops_form[0])
 
     def _tim_kiem(self, tu_khoa=""):
         lop_chon = self._loc_lop.get()
-        gt_chon = self._loc_gt.get()
+        gt_chon  = self._loc_gt.get()
         ds = self._sv_svc.tim_nang_cao(
             tu_khoa=tu_khoa,
             ma_lop="" if lop_chon == "Tất cả" else lop_chon,
@@ -169,7 +201,7 @@ class SinhVienView(tk.Frame):
         )
         self._tai_du_lieu(ds)
 
-    #  CRUD
+    # CRUD
     def _on_chon_hang(self, _):
         row = self.table.lay_hang_chon()
         if row:
@@ -178,6 +210,11 @@ class SinhVienView(tk.Frame):
                 self._dien_form(sv)
 
     def _dien_form(self, sv: SinhVien):
+        for f in [self._f_mssv, self._f_hoten, self._f_ns,
+                  self._f_email, self._f_sdt, self._f_diachi]:
+            f.entry.config(state="normal")
+        self._cb_lop.config(state="readonly")
+
         self._f_mssv.set(sv.mssv)
         self._f_hoten.set(sv.ho_ten)
         self._f_ns.set(sv.ngay_sinh)
@@ -187,29 +224,34 @@ class SinhVienView(tk.Frame):
         self._gt_var.set(sv.gioi_tinh)
         self._lop_var.set(sv.ma_lop)
 
+        if self._mode != "edit":
+            self._khoa_form()
+
     def _xoa_form(self):
         for f in [self._f_mssv, self._f_hoten, self._f_ns,
                   self._f_email, self._f_sdt, self._f_diachi]:
+            f.entry.config(state="normal")
             f.clear()
         self._gt_var.set("Nam")
         if self._cb_lop["values"]:
-            self._cb_lop.current(0)
+            self._lop_var.set(self._cb_lop["values"][0])
 
     def _bat_dau_them(self):
         self._mode = "add"
-        self._form_title.config(text="Thêm sinh viên")
+        self._form_title.config(text="Thêm sinh viên mới")
         self._xoa_form()
-        self._f_mssv.enable()  # đảm bảo MSSV luôn nhập được
+        self._mo_form()
+        self._f_mssv.entry.config(state="normal")  # MSSV nhập được khi thêm mới
 
     def _bat_dau_sua(self):
-        """Bật chế độ sửa — giữ dữ liệu đang chọn, khóa MSSV."""
         row = self.table.lay_hang_chon()
         if not row:
             messagebox.showwarning("Chưa chọn", "Vui lòng chọn một sinh viên.")
             return
         self._mode = "edit"
         self._form_title.config(text="Cập nhật sinh viên")
-        self._f_mssv.disable()  # không cho sửa MSSV
+        self._mo_form()
+        self._f_mssv.entry.config(state="disabled")  # Không cho sửa MSSV
 
     def _luu(self):
         if self._mode is None:
@@ -239,7 +281,8 @@ class SinhVienView(tk.Frame):
             self._tai_du_lieu()
             self._mode = None
             self._xoa_form()
-            self._f_mssv.enable()
+            self._khoa_form()
+            self._form_title.config(text="Chi tiết sinh viên")
         else:
             self._status.err(msg)
 
@@ -256,13 +299,16 @@ class SinhVienView(tk.Frame):
                 self._status.ok(msg)
                 self._tai_du_lieu()
                 self._xoa_form()
+                self._khoa_form()
+                self._form_title.config(text="Chi tiết sinh viên")
             else:
                 self._status.err(msg)
 
     def _huy(self):
         self._mode = None
+        self._form_title.config(text="Chi tiết sinh viên")
         self._xoa_form()
-        self._f_mssv.enable()
+        self._khoa_form()
 
     def _xuat_csv(self):
         path = filedialog.asksaveasfilename(

@@ -1,0 +1,394 @@
+[
+    {
+        "mssv": "SV001",
+        "ma_lop": "CNTT03",
+        "diem_chuyen_can": 9.0,
+        "diem_giua_ky": 7.5,
+        "diem_cuoi_ky": 8.0
+    },
+    {
+        "mssv": "SV002",
+        "ma_lop": "CNTT02",
+        "diem_chuyen_can": 8.0,
+        "diem_giua_ky": 6.5,
+        "diem_cuoi_ky": 7.0
+    },
+    {
+        "mssv": "SV003",
+        "ma_lop": "CNTT01",
+        "diem_chuyen_can": 10.0,
+        "diem_giua_ky": 9.0,
+        "diem_cuoi_ky": 9.5
+    },
+    {
+        "mssv": "SV004",
+        "ma_lop": "CNTT01",
+        "diem_chuyen_can": 7.0,
+        "diem_giua_ky": 5.5,
+        "diem_cuoi_ky": 6.0
+    },
+    {
+        "mssv": "SV005",
+        "ma_lop": "CNTT01",
+        "diem_chuyen_can": 9.0,
+        "diem_giua_ky": 8.0,
+        "diem_cuoi_ky": 8.5
+    },
+    {
+        "mssv": "SV006",
+        "ma_lop": "CNTT02",
+        "diem_chuyen_can": 6.0,
+        "diem_giua_ky": 4.5,
+        "diem_cuoi_ky": 5.0
+    },
+    {
+        "mssv": "SV007",
+        "ma_lop": "CNTT02",
+        "diem_chuyen_can": 8.5,
+        "diem_giua_ky": 7.0,
+        "diem_cuoi_ky": 7.5
+    },
+    {
+        "mssv": "SV008",
+        "ma_lop": "CNTT03",
+        "diem_chuyen_can": 5.0,
+        "diem_giua_ky": 4.0,
+        "diem_cuoi_ky": 4.5
+    },
+    {
+        "mssv": "SV009",
+        "ma_lop": "CNTT03",
+        "diem_chuyen_can": 9.5,
+        "diem_giua_ky": 8.5,
+        "diem_cuoi_ky": 9.0
+    },
+    {
+        "mssv": "SV010",
+        "ma_lop": "CNTT04",
+        "diem_chuyen_can": 7.5,
+        "diem_giua_ky": 6.0,
+        "diem_cuoi_ky": 6.5
+    },
+    {
+        "mssv": "SV011",
+        "ma_lop": "CNTT04",
+        "diem_chuyen_can": 8.0,
+        "diem_giua_ky": 7.5,
+        "diem_cuoi_ky": 8.0
+    },
+    {
+        "mssv": "SV012",
+        "ma_lop": "CNTT04",
+        "diem_chuyen_can": 6.5,
+        "diem_giua_ky": 5.0,
+        "diem_cuoi_ky": 5.5
+    },
+    {
+        "mssv": "SV013",
+        "ma_lop": "CNTT05",
+        "diem_chuyen_can": 10.0,
+        "diem_giua_ky": 9.5,
+        "diem_cuoi_ky": 9.0
+    },
+    {
+        "mssv": "SV014",
+        "ma_lop": "CNTT05",
+        "diem_chuyen_can": 4.0,
+        "diem_giua_ky": 3.5,
+        "diem_cuoi_ky": 4.0
+    },
+    {
+        "mssv": "SV015",
+        "ma_lop": "CNTT05",
+        "diem_chuyen_can": 8.0,
+        "diem_giua_ky": 7.0,
+        "diem_cuoi_ky": 7.5
+    },
+    {
+        "mssv": "SV016",
+        "ma_lop": "CNTT05",
+        "diem_chuyen_can": 7.0,
+        "diem_giua_ky": 6.5,
+        "diem_cuoi_ky": 7.0
+    },
+    {
+        "mssv": "SV017",
+        "ma_lop": "CNTT06",
+        "diem_chuyen_can": 9.0,
+        "diem_giua_ky": 8.0,
+        "diem_cuoi_ky": 8.5
+    },
+    {
+        "mssv": "SV018",
+        "ma_lop": "CNTT06",
+        "diem_chuyen_can": 6.0,
+        "diem_giua_ky": 5.5,
+        "diem_cuoi_ky": 6.0
+    },
+    {
+        "mssv": "SV019",
+        "ma_lop": "CNTT06",
+        "diem_chuyen_can": 7.5,
+        "diem_giua_ky": 7.0,
+        "diem_cuoi_ky": 7.5
+    },
+    {
+        "mssv": "SV020",
+        "ma_lop": "CNTT06",
+        "diem_chuyen_can": 5.0,
+        "diem_giua_ky": 4.0,
+        "diem_cuoi_ky": 4.5
+    },
+    {
+        "mssv": "SV021",
+        "ma_lop": "CNTT01",
+        "diem_chuyen_can": 8.5,
+        "diem_giua_ky": 8.0,
+        "diem_cuoi_ky": 8.0
+    },
+    {
+        "mssv": "SV022",
+        "ma_lop": "CNTT02",
+        "diem_chuyen_can": 7.0,
+        "diem_giua_ky": 6.0,
+        "diem_cuoi_ky": 6.5
+    },
+    {
+        "mssv": "SV023",
+        "ma_lop": "CNTT03",
+        "diem_chuyen_can": 9.0,
+        "diem_giua_ky": 7.0,
+        "diem_cuoi_ky": 7.5
+    },
+    {
+        "mssv": "SV024",
+        "ma_lop": "CNTT04",
+        "diem_chuyen_can": 6.0,
+        "diem_giua_ky": 5.5,
+        "diem_cuoi_ky": 6.0
+    },
+    {
+        "mssv": "SV025",
+        "ma_lop": "CNTT05",
+        "diem_chuyen_can": 8.0,
+        "diem_giua_ky": 7.5,
+        "diem_cuoi_ky": 8.0
+    },
+    {
+        "mssv": "SV001",
+        "ma_lop": "CNTT05",
+        "diem_chuyen_can": 8.0,
+        "diem_giua_ky": 7.0,
+        "diem_cuoi_ky": 7.5
+    },
+    {
+        "mssv": "SV002",
+        "ma_lop": "CNTT04",
+        "diem_chuyen_can": 6.5,
+        "diem_giua_ky": 5.5,
+        "diem_cuoi_ky": 6.0
+    },
+    {
+        "mssv": "SV003",
+        "ma_lop": "CNTT06",
+        "diem_chuyen_can": 9.5,
+        "diem_giua_ky": 9.0,
+        "diem_cuoi_ky": 9.5
+    },
+    {
+        "mssv": "SV004",
+        "ma_lop": "CNTT03",
+        "diem_chuyen_can": 5.0,
+        "diem_giua_ky": 4.5,
+        "diem_cuoi_ky": 5.0
+    },
+    {
+        "mssv": "SV005",
+        "ma_lop": "CNTT04",
+        "diem_chuyen_can": 8.0,
+        "diem_giua_ky": 7.5,
+        "diem_cuoi_ky": 8.0
+    },
+    {
+        "mssv": "SV006",
+        "ma_lop": "CNTT05",
+        "diem_chuyen_can": 4.5,
+        "diem_giua_ky": 3.5,
+        "diem_cuoi_ky": 4.0
+    },
+    {
+        "mssv": "SV007",
+        "ma_lop": "CNTT06",
+        "diem_chuyen_can": 7.5,
+        "diem_giua_ky": 6.5,
+        "diem_cuoi_ky": 7.0
+    },
+    {
+        "mssv": "SV008",
+        "ma_lop": "CNTT01",
+        "diem_chuyen_can": 6.0,
+        "diem_giua_ky": 5.0,
+        "diem_cuoi_ky": 5.5
+    },
+    {
+        "mssv": "SV009",
+        "ma_lop": "CNTT02",
+        "diem_chuyen_can": 9.0,
+        "diem_giua_ky": 8.5,
+        "diem_cuoi_ky": 9.0
+    },
+    {
+        "mssv": "SV010",
+        "ma_lop": "CNTT06",
+        "diem_chuyen_can": 7.0,
+        "diem_giua_ky": 6.0,
+        "diem_cuoi_ky": 6.5
+    },
+    {
+        "mssv": "SV011",
+        "ma_lop": "CNTT01",
+        "diem_chuyen_can": 8.5,
+        "diem_giua_ky": 8.0,
+        "diem_cuoi_ky": 8.5
+    },
+    {
+        "mssv": "SV012",
+        "ma_lop": "CNTT02",
+        "diem_chuyen_can": 5.5,
+        "diem_giua_ky": 5.0,
+        "diem_cuoi_ky": 5.5
+    },
+    {
+        "mssv": "SV013",
+        "ma_lop": "CNTT01",
+        "diem_chuyen_can": 10.0,
+        "diem_giua_ky": 9.0,
+        "diem_cuoi_ky": 9.5
+    },
+    {
+        "mssv": "SV014",
+        "ma_lop": "CNTT03",
+        "diem_chuyen_can": 3.5,
+        "diem_giua_ky": 4.0,
+        "diem_cuoi_ky": 3.5
+    },
+    {
+        "mssv": "SV015",
+        "ma_lop": "CNTT02",
+        "diem_chuyen_can": 8.5,
+        "diem_giua_ky": 7.5,
+        "diem_cuoi_ky": 8.0
+    },
+    {
+        "mssv": "SV016",
+        "ma_lop": "CNTT03",
+        "diem_chuyen_can": 7.5,
+        "diem_giua_ky": 6.0,
+        "diem_cuoi_ky": 6.5
+    },
+    {
+        "mssv": "SV017",
+        "ma_lop": "CNTT04",
+        "diem_chuyen_can": 9.0,
+        "diem_giua_ky": 8.5,
+        "diem_cuoi_ky": 9.0
+    },
+    {
+        "mssv": "SV018",
+        "ma_lop": "CNTT01",
+        "diem_chuyen_can": 5.5,
+        "diem_giua_ky": 5.0,
+        "diem_cuoi_ky": 5.5
+    },
+    {
+        "mssv": "SV019",
+        "ma_lop": "CNTT02",
+        "diem_chuyen_can": 8.0,
+        "diem_giua_ky": 7.0,
+        "diem_cuoi_ky": 7.5
+    },
+    {
+        "mssv": "SV020",
+        "ma_lop": "CNTT03",
+        "diem_chuyen_can": 4.5,
+        "diem_giua_ky": 3.5,
+        "diem_cuoi_ky": 4.0
+    },
+    {
+        "mssv": "SV021",
+        "ma_lop": "CNTT05",
+        "diem_chuyen_can": 9.0,
+        "diem_giua_ky": 8.0,
+        "diem_cuoi_ky": 8.5
+    },
+    {
+        "mssv": "SV022",
+        "ma_lop": "CNTT06",
+        "diem_chuyen_can": 6.5,
+        "diem_giua_ky": 6.0,
+        "diem_cuoi_ky": 6.5
+    },
+    {
+        "mssv": "SV023",
+        "ma_lop": "CNTT04",
+        "diem_chuyen_can": 8.5,
+        "diem_giua_ky": 7.5,
+        "diem_cuoi_ky": 8.0
+    },
+    {
+        "mssv": "SV024",
+        "ma_lop": "CNTT01",
+        "diem_chuyen_can": 7.0,
+        "diem_giua_ky": 6.5,
+        "diem_cuoi_ky": 7.0
+    },
+    {
+        "mssv": "SV025",
+        "ma_lop": "CNTT02",
+        "diem_chuyen_can": 7.5,
+        "diem_giua_ky": 7.0,
+        "diem_cuoi_ky": 7.5
+    },
+    {
+        "mssv": "SV001",
+        "ma_lop": "CNTT06",
+        "diem_chuyen_can": 8.5,
+        "diem_giua_ky": 8.0,
+        "diem_cuoi_ky": 8.5
+    },
+    {
+        "mssv": "SV002",
+        "ma_lop": "CNTT06",
+        "diem_chuyen_can": 7.0,
+        "diem_giua_ky": 6.5,
+        "diem_cuoi_ky": 7.0
+    },
+    {
+        "mssv": "SV009",
+        "ma_lop": "CNTT05",
+        "diem_chuyen_can": 9.5,
+        "diem_giua_ky": 9.0,
+        "diem_cuoi_ky": 9.5
+    },
+    {
+        "mssv": "SV013",
+        "ma_lop": "CNTT03",
+        "diem_chuyen_can": 10.0,
+        "diem_giua_ky": 9.5,
+        "diem_cuoi_ky": 10.0
+    },
+    {
+        "mssv": "SV021",
+        "ma_lop": "CNTT03",
+        "diem_chuyen_can": 8.0,
+        "diem_giua_ky": 7.5,
+        "diem_cuoi_ky": 8.0
+    },
+    {
+        "mssv": "SV025",
+        "ma_lop": "CNTT06",
+        "diem_chuyen_can": 7.0,
+        "diem_giua_ky": 6.5,
+        "diem_cuoi_ky": 7.0
+    }
+]
