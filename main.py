@@ -4,20 +4,23 @@ import tkinter as tk
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from services.sinh_vien_service import SinhVienService as sinh_vien_service
-from services.lop_hoc_service import LopHocService as lop_hoc_service
-from services.diem_so_service import DiemSoService as diem_so_service
-from services.nguoi_dung_service import NguoiDungService as nguoi_dung_service
+from services.sinh_vien_service import SinhVienService
+from services.lop_hoc_service import LopHocService
+from services.diem_so_service import DiemSoService
+from services.nguoi_dung_service import NguoiDungService
+from services.diem_danh_service import DiemDanhService
+from services.nhan_xet_service import NhanXetService
 from views.login_view import LoginView
-from views.main_view import MainView
 
 
 def khoi_chay():
     services = {
-        "sv":   sinh_vien_service("data/sinh_vien.json"),
-        "lop":  lop_hoc_service("data/lop_hoc.json"),
-        "diem": diem_so_service("data/diem_so.json"),
-        "nd":   nguoi_dung_service("data/nguoi_dung.json"),
+        "sv":   SinhVienService("data/sinh_vien.json"),
+        "lop":  LopHocService("data/lop_hoc.json"),
+        "diem": DiemSoService("data/diem_so.json"),
+        "nd":   NguoiDungService("data/nguoi_dung.json"),
+        "dd":   DiemDanhService("data/diem_danh.json"),
+        "nx":   NhanXetService("data/nhan_xet.json"),
     }
 
     root = tk.Tk()
@@ -25,7 +28,17 @@ def khoi_chay():
 
     def on_dang_nhap_thanh_cong():
         root.destroy()
-        app = MainView(services)
+        nd = services["nd"].nguoi_dung_hien_tai
+
+        if nd and nd.la_admin:
+            # Admin → giao diện quản trị đầy đủ
+            from views.main_view import MainView
+            app = MainView(services)
+        else:
+            # Giáo viên → giao diện riêng
+            from views.giao_vien_main_view import GiaoVienMainView
+            app = GiaoVienMainView(services, nd)
+
         app.mainloop()
 
     login = LoginView(services["nd"], on_success=on_dang_nhap_thanh_cong)
