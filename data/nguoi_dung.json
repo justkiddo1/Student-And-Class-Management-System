@@ -14,5 +14,37 @@
         "email": "ngocmai@edu.vn",
         "vai_tro": "user",
         "kich_hoat": true
+    },
+    {
+        "ten_dang_nhap": "quochuy",
+        "mat_khau_hash": "7766eb8f5043bc57951ad14142d2b5bd4783967c12198a6f9184c5275c39c24c",
+        "ho_ten": "Ngô Quốc Huy",
+        "email": "quochuyhuit@edu.com",
+        "vai_tro": "user",
+        "kich_hoat": true
+    },
+    {
+        "ten_dang_nhap": "thanhtruyen",
+        "mat_khau_hash": "3b02855fc987d82ac0465c65ec0f31830526e883eae03543e7ddec2f6f5ade02",
+        "ho_ten": "Phan Thanh Truyền",
+        "email": "thanhtruyenvh@edu.com",
+        "vai_tro": "user",
+        "kich_hoat": true
+    },
+    {
+        "ten_dang_nhap": "hongthao",
+        "mat_khau_hash": "d754cdafa648c6533c8dd1720300d4b48082143a7e1734f076b3799f6db6fd28",
+        "ho_ten": "Nguyễn Thị Hồng Thảo",
+        "email": "hongthaohuit@edu.com",
+        "vai_tro": "user",
+        "kich_hoat": true
+    },
+    {
+        "ten_dang_nhap": "hoami",
+        "mat_khau_hash": "ab051c0c6a470cc96c693f807c11a28a856b6c35afcc91c7551c6ff83bece1ce",
+        "ho_ten": "Lâm Thị Họa Mi",
+        "email": "hoami@edu.com",
+        "vai_tro": "user",
+        "kich_hoat": true
     }
 ]

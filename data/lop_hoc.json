@@ -4,11 +4,47 @@
         "ten_mon": "Lập trình Python",
         "ma_mon": "IT001",
         "giang_vien": "Phan Thị Ngọc Mai",
-        "si_so_toi_da": 30,
+        "si_so_toi_da": 60,
         "phong_hoc": "A105",
-        "lich_hoc": "Tiết 7-9 (12h30 - 14h45)",
+        "loai_hinh": "Lý thuyết",
+        "lich_hoc": [
+          {
+            "thu": "Thứ 2",
+            "tiet": "Tiết 7-9",
+            "gio": "12h30 - 14h45",
+            "phong": "A105"
+          },
+          {
+            "thu": "Thứ 5",
+            "tiet": "Tiết 7-9",
+            "gio": "12h30 - 14h45",
+            "phong": "A105"
+          }
+        ],
         "danh_sach_mssv": [
-            "SV003"
+            "SV003",
+            "SV004",
+            "SV005",
+            "SV008",
+            "SV011",
+            "SV013",
+            "SV018",
+            "SV021",
+            "SV024",
+            "SV036",
+            "SV039",
+            "SV048",
+            "SV049",
+            "SV054",
+            "SV060",
+            "SV061",
+            "SV063",
+            "SV072",
+            "SV081",
+            "SV102",
+            "SV104",
+            "SV143",
+            "SV146"
         ]
     },
     {
@@ -16,11 +52,45 @@
         "ten_mon": "Công nghệ .NET",
         "ma_mon": "IT002",
         "giang_vien": "Lâm Thị Họa Mi",
-        "si_so_toi_da": 35,
+        "si_so_toi_da": 60,
         "phong_hoc": "A211",
-        "lich_hoc": "Tiết 4-6 (9h45 - 11h50)",
+        "loai_hinh": "Lý thuyết",
+        "lich_hoc": [
+          {
+            "thu": "Thứ 3",
+            "tiet": "Tiết 4-6",
+            "gio": "9h45 - 11h50",
+            "phong": "A211"
+          }
+        ],
         "danh_sach_mssv": [
-            "SV002"
+            "SV002",
+            "SV006",
+            "SV007",
+            "SV009",
+            "SV012",
+            "SV015",
+            "SV019",
+            "SV022",
+            "SV025",
+            "SV027",
+            "SV029",
+            "SV034",
+            "SV037",
+            "SV050",
+            "SV053",
+            "SV055",
+            "SV065",
+            "SV067",
+            "SV071",
+            "SV074",
+            "SV087",
+            "SV090",
+            "SV092",
+            "SV096",
+            "SV103",
+            "SV121",
+            "SV140"
         ]
     },
     {
@@ -28,11 +98,59 @@
         "ten_mon": "Cấu trúc rời rạc",
         "ma_mon": "IT003",
         "giang_vien": "Vũ Văn Vinh",
-        "si_so_toi_da": 35,
+        "si_so_toi_da": 60,
         "phong_hoc": "A307",
-        "lich_hoc": "Tiết 1-3 (7h00 - 9h20)",
+        "loai_hinh": "Lý thuyết",
+        "lich_hoc": [
+          {
+            "thu": "Thứ 2",
+            "tiet": "Tiết 1-3",
+            "gio": "7h00 - 9h20",
+            "phong": "A307"
+          },
+          {
+            "thu": "Thứ 4",
+            "tiet": "Tiết 1-3",
+            "gio": "7h00 - 9h20",
+            "phong": "A307"
+          }
+        ],
         "danh_sach_mssv": [
-            "SV001"
+            "SV001",
+            "SV004",
+            "SV008",
+            "SV009",
+            "SV013",
+            "SV014",
+            "SV016",
+            "SV020",
+            "SV021",
+            "SV023",
+            "SV030",
+            "SV032",
+            "SV033",
+            "SV068",
+            "SV069",
+            "SV079",
+            "SV083",
+            "SV084",
+            "SV094",
+            "SV097",
+            "SV098",
+            "SV107",
+            "SV113",
+            "SV116",
+            "SV118",
+            "SV123",
+            "SV127",
+            "SV128",
+            "SV132",
+            "SV133",
+            "SV134",
+            "SV135",
+            "SV139",
+            "SV141",
+            "SV148"
         ]
     },
     {
@@ -40,11 +158,55 @@
         "ten_mon": "Lập trình di động",
         "ma_mon": "IT004",
         "giang_vien": "Phan Thanh Truyền",
-        "si_so_toi_da": 36,
+        "si_so_toi_da": 60,
         "phong_hoc": "A211",
-        "lich_hoc": "Tiết 7-9 (12h30 - 14h45)",
+        "loai_hinh": "Thực hành",
+        "lich_hoc": [
+          {
+            "thu": "Thứ 4",
+            "tiet": "Tiết 7-9",
+            "gio": "12h30 - 14h45",
+            "phong": "B201"
+          },
+          {
+            "thu": "Thứ 6",
+            "tiet": "Tiết 7-9",
+            "gio": "12h30 - 14h45",
+            "phong": "B201"
+          }
+        ],
         "danh_sach_mssv": [
-            "SV004"
+            "SV002",
+            "SV005",
+            "SV010",
+            "SV011",
+            "SV012",
+            "SV017",
+            "SV023",
+            "SV024",
+            "SV038",
+            "SV044",
+            "SV046",
+            "SV051",
+            "SV052",
+            "SV056",
+            "SV070",
+            "SV076",
+            "SV089",
+            "SV091",
+            "SV099",
+            "SV100",
+            "SV101",
+            "SV109",
+            "SV112",
+            "SV115",
+            "SV124",
+            "SV129",
+            "SV136",
+            "SV137",
+            "SV138",
+            "SV145",
+            "SV147"
         ]
     },
     {
@@ -52,19 +214,108 @@
         "ten_mon": "Lập trình mạng",
         "ma_mon": "IT005",
         "giang_vien": "Ngô Quốc Huy",
-        "si_so_toi_da": 50,
+        "si_so_toi_da": 60,
         "phong_hoc": "B401",
-        "lich_hoc": "Tiết 10-12 (15h00 - 17h20)",
-        "danh_sach_mssv": []
+        "loai_hinh": "Thực hành",
+        "lich_hoc": [
+          {
+            "thu": "Thứ 3",
+            "tiet": "Tiết 10-12",
+            "gio": "15h00 - 17h20",
+            "phong": "B401"
+          }
+        ],
+        "danh_sach_mssv": [
+            "SV001",
+            "SV006",
+            "SV009",
+            "SV013",
+            "SV014",
+            "SV015",
+            "SV016",
+            "SV021",
+            "SV025",
+            "SV028",
+            "SV031",
+            "SV035",
+            "SV040",
+            "SV041",
+            "SV043",
+            "SV045",
+            "SV047",
+            "SV059",
+            "SV064",
+            "SV066",
+            "SV078",
+            "SV080",
+            "SV088",
+            "SV105",
+            "SV114",
+            "SV117",
+            "SV120",
+            "SV122",
+            "SV125",
+            "SV126",
+            "SV131",
+            "SV142",
+            "SV144",
+            "SV150"
+        ]
     },
     {
         "ma_lop": "CNTT06",
         "ten_mon": "Bằng chứng số",
         "ma_mon": "IT006",
         "giang_vien": "Nguyễn Thị Hồng Thảo",
-        "si_so_toi_da": 32,
+        "si_so_toi_da": 60,
         "phong_hoc": "A102",
-        "lich_hoc": "Tiết 4-6 (9h45 - 11h50)",
-        "danh_sach_mssv": []
+        "loai_hinh": "Lý thuyết",
+        "lich_hoc": [
+          {
+            "thu": "Thứ 5",
+            "tiet": "Tiết 4-6",
+            "gio": "9h45 - 11h50",
+            "phong": "A102"
+          },
+          {
+            "thu": "Thứ 7",
+            "tiet": "Tiết 4-6",
+            "gio": "9h45 - 11h50",
+            "phong": "A102"
+          }
+        ],
+        "danh_sach_mssv": [
+            "SV001",
+            "SV002",
+            "SV003",
+            "SV007",
+            "SV010",
+            "SV017",
+            "SV018",
+            "SV019",
+            "SV020",
+            "SV022",
+            "SV025",
+            "SV026",
+            "SV042",
+            "SV057",
+            "SV058",
+            "SV062",
+            "SV073",
+            "SV075",
+            "SV077",
+            "SV082",
+            "SV085",
+            "SV086",
+            "SV093",
+            "SV095",
+            "SV106",
+            "SV108",
+            "SV110",
+            "SV111",
+            "SV119",
+            "SV130",
+            "SV149"
+        ]
     }
 ]

@@ -248,5 +248,1255 @@
         "so_dien_thoai": "0901234585",
         "ma_lop": "CNTT05",
         "dia_chi": "Sóc Trăng"
+    },
+    {
+        "mssv": "SV026",
+        "ho_ten": "Nguyễn Bảo Khoa",
+        "ngay_sinh": "05/04/2003",
+        "gioi_tinh": "Nam",
+        "email": "sv026khoa@gmail.com",
+        "so_dien_thoai": "0901234586",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Bình Dương"
+    },
+    {
+        "mssv": "SV027",
+        "ho_ten": "Lâm Công Dũng",
+        "ngay_sinh": "07/02/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv027dũng@gmail.com",
+        "so_dien_thoai": "0901234587",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Bình Thuận"
+    },
+    {
+        "mssv": "SV028",
+        "ho_ten": "Trịnh Minh Nam",
+        "ngay_sinh": "15/04/2005",
+        "gioi_tinh": "Nam",
+        "email": "sv028nam@gmail.com",
+        "so_dien_thoai": "0901234588",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Gia Lai"
+    },
+    {
+        "mssv": "SV029",
+        "ho_ten": "Mai Duy Trí",
+        "ngay_sinh": "09/06/2005",
+        "gioi_tinh": "Nam",
+        "email": "sv029trí@gmail.com",
+        "so_dien_thoai": "0901234589",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Quảng Nam"
+    },
+    {
+        "mssv": "SV030",
+        "ho_ten": "Phạm Ngọc Chi",
+        "ngay_sinh": "28/06/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv030chi@gmail.com",
+        "so_dien_thoai": "0901234590",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Hòa Bình"
+    },
+    {
+        "mssv": "SV031",
+        "ho_ten": "Trần Thúy Ngọc",
+        "ngay_sinh": "03/07/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv031ngọc@gmail.com",
+        "so_dien_thoai": "0901234591",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Đắk Lắk"
+    },
+    {
+        "mssv": "SV032",
+        "ho_ten": "Hà Thu Trang",
+        "ngay_sinh": "08/11/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv032trang@gmail.com",
+        "so_dien_thoai": "0901234592",
+        "ma_lop": "CNTT03",
+        "dia_chi": "An Giang"
+    },
+    {
+        "mssv": "SV033",
+        "ho_ten": "Phạm Công Khoa",
+        "ngay_sinh": "27/11/2005",
+        "gioi_tinh": "Nam",
+        "email": "sv033khoa@gmail.com",
+        "so_dien_thoai": "0901234593",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Nghệ An"
+    },
+    {
+        "mssv": "SV034",
+        "ho_ten": "Dương Thu Hoa",
+        "ngay_sinh": "21/10/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv034hoa@gmail.com",
+        "so_dien_thoai": "0901234594",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Phú Thọ"
+    },
+    {
+        "mssv": "SV035",
+        "ho_ten": "Phan Trung Thịnh",
+        "ngay_sinh": "23/11/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv035thinh@gmail.com",
+        "so_dien_thoai": "0901234595",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Quảng Ngãi"
+    },
+    {
+        "mssv": "SV036",
+        "ho_ten": "Trần Thu Linh",
+        "ngay_sinh": "09/07/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv036linh@gmail.com",
+        "so_dien_thoai": "0901234596",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Quảng Nam"
+    },
+    {
+        "mssv": "SV037",
+        "ho_ten": "Đặng Khánh Duyên",
+        "ngay_sinh": "15/11/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv037duyen@gmail.com",
+        "so_dien_thoai": "0901234597",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Phú Yên"
+    },
+    {
+        "mssv": "SV038",
+        "ho_ten": "Đặng Bảo Nam",
+        "ngay_sinh": "19/12/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv038nam@gmail.com",
+        "so_dien_thoai": "0901234598",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Quảng Trị"
+    },
+    {
+        "mssv": "SV039",
+        "ho_ten": "Dương Thu Nhi",
+        "ngay_sinh": "25/02/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv039nhi@gmail.com",
+        "so_dien_thoai": "0901234599",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Đồng Nai"
+    },
+    {
+        "mssv": "SV040",
+        "ho_ten": "Huỳnh Đức Cường",
+        "ngay_sinh": "13/07/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv040cuong@gmail.com",
+        "so_dien_thoai": "0901234600",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Kiên Giang"
+    },
+    {
+        "mssv": "SV041",
+        "ho_ten": "Mai Ánh Hà",
+        "ngay_sinh": "29/11/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv041hà@gmail.com",
+        "so_dien_thoai": "0901234601",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Gia Lai"
+    },
+    {
+        "mssv": "SV042",
+        "ho_ten": "Phạm Bích Phương",
+        "ngay_sinh": "01/08/2003",
+        "gioi_tinh": "Nữ",
+        "email": "sv042phuong@gmail.com",
+        "so_dien_thoai": "0901234602",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Phú Yên"
+    },
+    {
+        "mssv": "SV043",
+        "ho_ten": "Cao Long Minh",
+        "ngay_sinh": "17/11/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv043minh@gmail.com",
+        "so_dien_thoai": "0901234603",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Thừa Thiên Huế"
+    },
+    {
+        "mssv": "SV044",
+        "ho_ten": "Ngô Duy Trí",
+        "ngay_sinh": "11/10/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv044trí@gmail.com",
+        "so_dien_thoai": "0901234604",
+        "ma_lop": "CNTT04",
+        "dia_chi": "TP. Hồ Chí Minh"
+    },
+    {
+        "mssv": "SV045",
+        "ho_ten": "Ngô Long Đạt",
+        "ngay_sinh": "08/01/2003",
+        "gioi_tinh": "Nam",
+        "email": "sv045dạt@gmail.com",
+        "so_dien_thoai": "0901234605",
+        "ma_lop": "CNTT05",
+        "dia_chi": "An Giang"
+    },
+    {
+        "mssv": "SV046",
+        "ho_ten": "Hà Trung Khải",
+        "ngay_sinh": "22/03/2003",
+        "gioi_tinh": "Nam",
+        "email": "sv046khải@gmail.com",
+        "so_dien_thoai": "0901234606",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Hà Tĩnh"
+    },
+    {
+        "mssv": "SV047",
+        "ho_ten": "Bùi Thành Đức",
+        "ngay_sinh": "30/04/2005",
+        "gioi_tinh": "Nam",
+        "email": "sv047duc@gmail.com",
+        "so_dien_thoai": "0901234607",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Thừa Thiên Huế"
+    },
+    {
+        "mssv": "SV048",
+        "ho_ten": "Đinh Khánh Loan",
+        "ngay_sinh": "15/09/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv048loan@gmail.com",
+        "so_dien_thoai": "0901234608",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Bình Định"
+    },
+    {
+        "mssv": "SV049",
+        "ho_ten": "Lê Quốc Hùng",
+        "ngay_sinh": "08/10/2003",
+        "gioi_tinh": "Nam",
+        "email": "sv049hùng@gmail.com",
+        "so_dien_thoai": "0901234609",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Hải Phòng"
+    },
+    {
+        "mssv": "SV050",
+        "ho_ten": "Đặng Hữu Dũng",
+        "ngay_sinh": "17/02/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv050dũng@gmail.com",
+        "so_dien_thoai": "0901234610",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Gia Lai"
+    },
+    {
+        "mssv": "SV051",
+        "ho_ten": "Đặng Hồng Nhi",
+        "ngay_sinh": "26/04/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv051nhi@gmail.com",
+        "so_dien_thoai": "0901234611",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Sóc Trăng"
+    },
+    {
+        "mssv": "SV052",
+        "ho_ten": "Phạm Hữu Cường",
+        "ngay_sinh": "14/07/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv052cuong@gmail.com",
+        "so_dien_thoai": "0901234612",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Cần Thơ"
+    },
+    {
+        "mssv": "SV053",
+        "ho_ten": "Trần Công Phát",
+        "ngay_sinh": "07/04/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv053phát@gmail.com",
+        "so_dien_thoai": "0901234613",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Phú Thọ"
+    },
+    {
+        "mssv": "SV054",
+        "ho_ten": "Phan Thanh Thy",
+        "ngay_sinh": "08/08/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv054thy@gmail.com",
+        "so_dien_thoai": "0901234614",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Cà Mau"
+    },
+    {
+        "mssv": "SV055",
+        "ho_ten": "Trần Anh Nam",
+        "ngay_sinh": "25/02/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv055nam@gmail.com",
+        "so_dien_thoai": "0901234615",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Nghệ An"
+    },
+    {
+        "mssv": "SV056",
+        "ho_ten": "Huỳnh Phương Vy",
+        "ngay_sinh": "06/01/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv056vy@gmail.com",
+        "so_dien_thoai": "0901234616",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Hà Nội"
+    },
+    {
+        "mssv": "SV057",
+        "ho_ten": "Đỗ Yến Ngọc",
+        "ngay_sinh": "23/07/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv057ngọc@gmail.com",
+        "so_dien_thoai": "0901234617",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Hà Tĩnh"
+    },
+    {
+        "mssv": "SV058",
+        "ho_ten": "Phan Thu Thảo",
+        "ngay_sinh": "19/01/2003",
+        "gioi_tinh": "Nữ",
+        "email": "sv058thảo@gmail.com",
+        "so_dien_thoai": "0901234618",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Phú Thọ"
+    },
+    {
+        "mssv": "SV059",
+        "ho_ten": "Hà Quốc Dũng",
+        "ngay_sinh": "16/10/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv059dũng@gmail.com",
+        "so_dien_thoai": "0901234619",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Ninh Thuận"
+    },
+    {
+        "mssv": "SV060",
+        "ho_ten": "Trần Thành Khải",
+        "ngay_sinh": "20/02/2003",
+        "gioi_tinh": "Nam",
+        "email": "sv060khải@gmail.com",
+        "so_dien_thoai": "0901234620",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Bình Định"
+    },
+    {
+        "mssv": "SV061",
+        "ho_ten": "Phạm Yến Trinh",
+        "ngay_sinh": "20/10/2003",
+        "gioi_tinh": "Nữ",
+        "email": "sv061trinh@gmail.com",
+        "so_dien_thoai": "0901234621",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Sơn La"
+    },
+    {
+        "mssv": "SV062",
+        "ho_ten": "Đinh Anh Quân",
+        "ngay_sinh": "07/05/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv062quan@gmail.com",
+        "so_dien_thoai": "0901234622",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Tây Ninh"
+    },
+    {
+        "mssv": "SV063",
+        "ho_ten": "Bùi Công Tài",
+        "ngay_sinh": "11/08/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv063tài@gmail.com",
+        "so_dien_thoai": "0901234623",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Hà Nội"
+    },
+    {
+        "mssv": "SV064",
+        "ho_ten": "Thái Diễm Ngân",
+        "ngay_sinh": "07/09/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv064ngan@gmail.com",
+        "so_dien_thoai": "0901234624",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Phú Yên"
+    },
+    {
+        "mssv": "SV065",
+        "ho_ten": "Ngô Long Khải",
+        "ngay_sinh": "10/06/2003",
+        "gioi_tinh": "Nam",
+        "email": "sv065khải@gmail.com",
+        "so_dien_thoai": "0901234625",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Cà Mau"
+    },
+    {
+        "mssv": "SV066",
+        "ho_ten": "Thái Lan Huyền",
+        "ngay_sinh": "27/11/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv066huyen@gmail.com",
+        "so_dien_thoai": "0901234626",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Kon Tum"
+    },
+    {
+        "mssv": "SV067",
+        "ho_ten": "Hoàng Hoàng Minh",
+        "ngay_sinh": "18/12/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv067minh@gmail.com",
+        "so_dien_thoai": "0901234627",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Gia Lai"
+    },
+    {
+        "mssv": "SV068",
+        "ho_ten": "Thái Thu Trâm",
+        "ngay_sinh": "21/11/2003",
+        "gioi_tinh": "Nữ",
+        "email": "sv068tram@gmail.com",
+        "so_dien_thoai": "0901234628",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Bình Thuận"
+    },
+    {
+        "mssv": "SV069",
+        "ho_ten": "Đỗ Yến Linh",
+        "ngay_sinh": "14/11/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv069linh@gmail.com",
+        "so_dien_thoai": "0901234629",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Đà Nẵng"
+    },
+    {
+        "mssv": "SV070",
+        "ho_ten": "Hồ Duy Tài",
+        "ngay_sinh": "24/03/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv070tài@gmail.com",
+        "so_dien_thoai": "0901234630",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Hà Tĩnh"
+    },
+    {
+        "mssv": "SV071",
+        "ho_ten": "Mai Thị Ngân",
+        "ngay_sinh": "29/12/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv071ngan@gmail.com",
+        "so_dien_thoai": "0901234631",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Phú Thọ"
+    },
+    {
+        "mssv": "SV072",
+        "ho_ten": "Ngô Tiến Nam",
+        "ngay_sinh": "05/07/2003",
+        "gioi_tinh": "Nam",
+        "email": "sv072nam@gmail.com",
+        "so_dien_thoai": "0901234632",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Kon Tum"
+    },
+    {
+        "mssv": "SV073",
+        "ho_ten": "Trần Yến Loan",
+        "ngay_sinh": "08/11/2003",
+        "gioi_tinh": "Nữ",
+        "email": "sv073loan@gmail.com",
+        "so_dien_thoai": "0901234633",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Bình Dương"
+    },
+    {
+        "mssv": "SV074",
+        "ho_ten": "Mai Yến Phương",
+        "ngay_sinh": "28/04/2003",
+        "gioi_tinh": "Nữ",
+        "email": "sv074phuong@gmail.com",
+        "so_dien_thoai": "0901234634",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Thanh Hóa"
+    },
+    {
+        "mssv": "SV075",
+        "ho_ten": "Nguyễn Mỹ Trâm",
+        "ngay_sinh": "28/11/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv075tram@gmail.com",
+        "so_dien_thoai": "0901234635",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Bình Định"
+    },
+    {
+        "mssv": "SV076",
+        "ho_ten": "Vũ Lan Ngân",
+        "ngay_sinh": "28/01/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv076ngan@gmail.com",
+        "so_dien_thoai": "0901234636",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Quảng Ngãi"
+    },
+    {
+        "mssv": "SV077",
+        "ho_ten": "Lý Quốc Đạt",
+        "ngay_sinh": "01/04/2003",
+        "gioi_tinh": "Nam",
+        "email": "sv077dạt@gmail.com",
+        "so_dien_thoai": "0901234637",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Thừa Thiên Huế"
+    },
+    {
+        "mssv": "SV078",
+        "ho_ten": "Ngô Bích Trang",
+        "ngay_sinh": "21/06/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv078trang@gmail.com",
+        "so_dien_thoai": "0901234638",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Trà Vinh"
+    },
+    {
+        "mssv": "SV079",
+        "ho_ten": "Nguyễn Ngọc Hoa",
+        "ngay_sinh": "31/10/2003",
+        "gioi_tinh": "Nữ",
+        "email": "sv079hoa@gmail.com",
+        "so_dien_thoai": "0901234639",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Đà Nẵng"
+    },
+    {
+        "mssv": "SV080",
+        "ho_ten": "Tô Công Hưng",
+        "ngay_sinh": "20/07/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv080hung@gmail.com",
+        "so_dien_thoai": "0901234640",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Đồng Nai"
+    },
+    {
+        "mssv": "SV081",
+        "ho_ten": "Hà Thu Hoa",
+        "ngay_sinh": "14/12/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv081hoa@gmail.com",
+        "so_dien_thoai": "0901234641",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Ninh Thuận"
+    },
+    {
+        "mssv": "SV082",
+        "ho_ten": "Ngô Công Khải",
+        "ngay_sinh": "11/10/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv082khải@gmail.com",
+        "so_dien_thoai": "0901234642",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Đồng Nai"
+    },
+    {
+        "mssv": "SV083",
+        "ho_ten": "Lâm Bích Phương",
+        "ngay_sinh": "23/07/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv083phuong@gmail.com",
+        "so_dien_thoai": "0901234643",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Hà Tĩnh"
+    },
+    {
+        "mssv": "SV084",
+        "ho_ten": "Vũ Công Thịnh",
+        "ngay_sinh": "19/10/2003",
+        "gioi_tinh": "Nam",
+        "email": "sv084thinh@gmail.com",
+        "so_dien_thoai": "0901234644",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Trà Vinh"
+    },
+    {
+        "mssv": "SV085",
+        "ho_ten": "Đỗ Hoàng Hiếu",
+        "ngay_sinh": "20/10/2005",
+        "gioi_tinh": "Nam",
+        "email": "sv085hieu@gmail.com",
+        "so_dien_thoai": "0901234645",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Tây Ninh"
+    },
+    {
+        "mssv": "SV086",
+        "ho_ten": "Võ Phương Vy",
+        "ngay_sinh": "06/12/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv086vy@gmail.com",
+        "so_dien_thoai": "0901234646",
+        "ma_lop": "CNTT06",
+        "dia_chi": "An Giang"
+    },
+    {
+        "mssv": "SV087",
+        "ho_ten": "Lâm Khánh Oanh",
+        "ngay_sinh": "27/02/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv087oanh@gmail.com",
+        "so_dien_thoai": "0901234647",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Kon Tum"
+    },
+    {
+        "mssv": "SV088",
+        "ho_ten": "Vũ Đức Hùng",
+        "ngay_sinh": "16/04/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv088hùng@gmail.com",
+        "so_dien_thoai": "0901234648",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Hải Phòng"
+    },
+    {
+        "mssv": "SV089",
+        "ho_ten": "Lý Yến Trinh",
+        "ngay_sinh": "23/12/2003",
+        "gioi_tinh": "Nữ",
+        "email": "sv089trinh@gmail.com",
+        "so_dien_thoai": "0901234649",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Bình Phước"
+    },
+    {
+        "mssv": "SV090",
+        "ho_ten": "Bùi Mỹ Hà",
+        "ngay_sinh": "08/07/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv090hà@gmail.com",
+        "so_dien_thoai": "0901234650",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Ninh Thuận"
+    },
+    {
+        "mssv": "SV091",
+        "ho_ten": "Trần Hồng Mai",
+        "ngay_sinh": "05/08/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv091mai@gmail.com",
+        "so_dien_thoai": "0901234651",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Ninh Thuận"
+    },
+    {
+        "mssv": "SV092",
+        "ho_ten": "Võ Diễm Huyền",
+        "ngay_sinh": "15/09/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv092huyen@gmail.com",
+        "so_dien_thoai": "0901234652",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Hậu Giang"
+    },
+    {
+        "mssv": "SV093",
+        "ho_ten": "Đỗ Lan Mai",
+        "ngay_sinh": "16/09/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv093mai@gmail.com",
+        "so_dien_thoai": "0901234653",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Bình Định"
+    },
+    {
+        "mssv": "SV094",
+        "ho_ten": "Võ Ngọc Thảo",
+        "ngay_sinh": "11/05/2003",
+        "gioi_tinh": "Nữ",
+        "email": "sv094thảo@gmail.com",
+        "so_dien_thoai": "0901234654",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Phú Thọ"
+    },
+    {
+        "mssv": "SV095",
+        "ho_ten": "Hoàng Đức Tuấn",
+        "ngay_sinh": "05/12/2005",
+        "gioi_tinh": "Nam",
+        "email": "sv095tuan@gmail.com",
+        "so_dien_thoai": "0901234655",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Quảng Nam"
+    },
+    {
+        "mssv": "SV096",
+        "ho_ten": "Đinh Công Phát",
+        "ngay_sinh": "02/07/2005",
+        "gioi_tinh": "Nam",
+        "email": "sv096phát@gmail.com",
+        "so_dien_thoai": "0901234656",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Sóc Trăng"
+    },
+    {
+        "mssv": "SV097",
+        "ho_ten": "Hà Thúy Hà",
+        "ngay_sinh": "01/08/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv097hà@gmail.com",
+        "so_dien_thoai": "0901234657",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Kon Tum"
+    },
+    {
+        "mssv": "SV098",
+        "ho_ten": "Lý Hồng Quỳnh",
+        "ngay_sinh": "08/08/2003",
+        "gioi_tinh": "Nữ",
+        "email": "sv098quynh@gmail.com",
+        "so_dien_thoai": "0901234658",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Bạc Liêu"
+    },
+    {
+        "mssv": "SV099",
+        "ho_ten": "Nguyễn Thanh Trâm",
+        "ngay_sinh": "06/12/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv099tram@gmail.com",
+        "so_dien_thoai": "0901234659",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Khánh Hòa"
+    },
+    {
+        "mssv": "SV100",
+        "ho_ten": "Dương Tiến Quân",
+        "ngay_sinh": "21/02/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv100quan@gmail.com",
+        "so_dien_thoai": "0901234660",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Khánh Hòa"
+    },
+    {
+        "mssv": "SV101",
+        "ho_ten": "Vũ Thị Hoa",
+        "ngay_sinh": "07/06/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv101hoa@gmail.com",
+        "so_dien_thoai": "0901234661",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Tây Ninh"
+    },
+    {
+        "mssv": "SV102",
+        "ho_ten": "Đinh Bích Phương",
+        "ngay_sinh": "16/02/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv102phuong@gmail.com",
+        "so_dien_thoai": "0901234662",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Phú Thọ"
+    },
+    {
+        "mssv": "SV103",
+        "ho_ten": "Ngô Minh Khải",
+        "ngay_sinh": "31/01/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv103khải@gmail.com",
+        "so_dien_thoai": "0901234663",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Thừa Thiên Huế"
+    },
+    {
+        "mssv": "SV104",
+        "ho_ten": "Tô Đức Tuấn",
+        "ngay_sinh": "22/08/2003",
+        "gioi_tinh": "Nam",
+        "email": "sv104tuan@gmail.com",
+        "so_dien_thoai": "0901234664",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Quảng Bình"
+    },
+    {
+        "mssv": "SV105",
+        "ho_ten": "Lý Bảo Khoa",
+        "ngay_sinh": "20/03/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv105khoa@gmail.com",
+        "so_dien_thoai": "0901234665",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Đồng Nai"
+    },
+    {
+        "mssv": "SV106",
+        "ho_ten": "Đỗ Hữu Quân",
+        "ngay_sinh": "19/05/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv106quan@gmail.com",
+        "so_dien_thoai": "0901234666",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Vĩnh Long"
+    },
+    {
+        "mssv": "SV107",
+        "ho_ten": "Đặng Ngọc Trinh",
+        "ngay_sinh": "23/02/2003",
+        "gioi_tinh": "Nữ",
+        "email": "sv107trinh@gmail.com",
+        "so_dien_thoai": "0901234667",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Hòa Bình"
+    },
+    {
+        "mssv": "SV108",
+        "ho_ten": "Lâm Duy Dũng",
+        "ngay_sinh": "14/09/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv108dũng@gmail.com",
+        "so_dien_thoai": "0901234668",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Bến Tre"
+    },
+    {
+        "mssv": "SV109",
+        "ho_ten": "Cao Anh Phát",
+        "ngay_sinh": "27/07/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv109phát@gmail.com",
+        "so_dien_thoai": "0901234669",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Bình Dương"
+    },
+    {
+        "mssv": "SV110",
+        "ho_ten": "Dương Khánh Ngọc",
+        "ngay_sinh": "06/07/2003",
+        "gioi_tinh": "Nữ",
+        "email": "sv110ngọc@gmail.com",
+        "so_dien_thoai": "0901234670",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Ninh Thuận"
+    },
+    {
+        "mssv": "SV111",
+        "ho_ten": "Thái Lan Quỳnh",
+        "ngay_sinh": "14/08/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv111quynh@gmail.com",
+        "so_dien_thoai": "0901234671",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Quảng Trị"
+    },
+    {
+        "mssv": "SV112",
+        "ho_ten": "Ngô Ánh Mai",
+        "ngay_sinh": "29/05/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv112mai@gmail.com",
+        "so_dien_thoai": "0901234672",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Bình Định"
+    },
+    {
+        "mssv": "SV113",
+        "ho_ten": "Hà Diễm Chi",
+        "ngay_sinh": "16/01/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv113chi@gmail.com",
+        "so_dien_thoai": "0901234673",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Thanh Hóa"
+    },
+    {
+        "mssv": "SV114",
+        "ho_ten": "Đặng Kim Hoa",
+        "ngay_sinh": "29/05/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv114hoa@gmail.com",
+        "so_dien_thoai": "0901234674",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Gia Lai"
+    },
+    {
+        "mssv": "SV115",
+        "ho_ten": "Cao Minh Khải",
+        "ngay_sinh": "14/12/2003",
+        "gioi_tinh": "Nam",
+        "email": "sv115khải@gmail.com",
+        "so_dien_thoai": "0901234675",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Hà Tĩnh"
+    },
+    {
+        "mssv": "SV116",
+        "ho_ten": "Đoàn Trung Bình",
+        "ngay_sinh": "03/01/2005",
+        "gioi_tinh": "Nam",
+        "email": "sv116bình@gmail.com",
+        "so_dien_thoai": "0901234676",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Quảng Ngãi"
+    },
+    {
+        "mssv": "SV117",
+        "ho_ten": "Bùi Bích Trinh",
+        "ngay_sinh": "18/08/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv117trinh@gmail.com",
+        "so_dien_thoai": "0901234677",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Tiền Giang"
+    },
+    {
+        "mssv": "SV118",
+        "ho_ten": "Mai Kim Loan",
+        "ngay_sinh": "10/05/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv118loan@gmail.com",
+        "so_dien_thoai": "0901234678",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Quảng Ngãi"
+    },
+    {
+        "mssv": "SV119",
+        "ho_ten": "Hà Minh Phát",
+        "ngay_sinh": "18/12/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv119phát@gmail.com",
+        "so_dien_thoai": "0901234679",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Thanh Hóa"
+    },
+    {
+        "mssv": "SV120",
+        "ho_ten": "Vũ Bảo Bình",
+        "ngay_sinh": "19/12/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv120bình@gmail.com",
+        "so_dien_thoai": "0901234680",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Hòa Bình"
+    },
+    {
+        "mssv": "SV121",
+        "ho_ten": "Phạm Ánh Vy",
+        "ngay_sinh": "12/04/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv121vy@gmail.com",
+        "so_dien_thoai": "0901234681",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Kon Tum"
+    },
+    {
+        "mssv": "SV122",
+        "ho_ten": "Đoàn Thành Tài",
+        "ngay_sinh": "02/01/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv122tài@gmail.com",
+        "so_dien_thoai": "0901234682",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Đắk Lắk"
+    },
+    {
+        "mssv": "SV123",
+        "ho_ten": "Huỳnh Khoa Bình",
+        "ngay_sinh": "19/01/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv123bình@gmail.com",
+        "so_dien_thoai": "0901234683",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Hậu Giang"
+    },
+    {
+        "mssv": "SV124",
+        "ho_ten": "Võ Kim Thy",
+        "ngay_sinh": "31/05/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv124thy@gmail.com",
+        "so_dien_thoai": "0901234684",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Đồng Nai"
+    },
+    {
+        "mssv": "SV125",
+        "ho_ten": "Dương Trung Khải",
+        "ngay_sinh": "05/03/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv125khải@gmail.com",
+        "so_dien_thoai": "0901234685",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Kon Tum"
+    },
+    {
+        "mssv": "SV126",
+        "ho_ten": "Đặng Hữu Nam",
+        "ngay_sinh": "20/10/2005",
+        "gioi_tinh": "Nam",
+        "email": "sv126nam@gmail.com",
+        "so_dien_thoai": "0901234686",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Quảng Ngãi"
+    },
+    {
+        "mssv": "SV127",
+        "ho_ten": "Võ Yến Ngọc",
+        "ngay_sinh": "14/10/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv127ngọc@gmail.com",
+        "so_dien_thoai": "0901234687",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Quảng Bình"
+    },
+    {
+        "mssv": "SV128",
+        "ho_ten": "Tô Bảo Minh",
+        "ngay_sinh": "07/11/2003",
+        "gioi_tinh": "Nam",
+        "email": "sv128minh@gmail.com",
+        "so_dien_thoai": "0901234688",
+        "ma_lop": "CNTT03",
+        "dia_chi": "An Giang"
+    },
+    {
+        "mssv": "SV129",
+        "ho_ten": "Đặng Đức Nam",
+        "ngay_sinh": "01/03/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv129nam@gmail.com",
+        "so_dien_thoai": "0901234689",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Cà Mau"
+    },
+    {
+        "mssv": "SV130",
+        "ho_ten": "Hồ Thị Mai",
+        "ngay_sinh": "10/12/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv130mai@gmail.com",
+        "so_dien_thoai": "0901234690",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Kiên Giang"
+    },
+    {
+        "mssv": "SV131",
+        "ho_ten": "Thái Minh Khoa",
+        "ngay_sinh": "04/07/2003",
+        "gioi_tinh": "Nam",
+        "email": "sv131khoa@gmail.com",
+        "so_dien_thoai": "0901234691",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Quảng Ngãi"
+    },
+    {
+        "mssv": "SV132",
+        "ho_ten": "Bùi Khoa Tài",
+        "ngay_sinh": "06/01/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv132tài@gmail.com",
+        "so_dien_thoai": "0901234692",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Hòa Bình"
+    },
+    {
+        "mssv": "SV133",
+        "ho_ten": "Võ Ngọc Ngọc",
+        "ngay_sinh": "13/12/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv133ngọc@gmail.com",
+        "so_dien_thoai": "0901234693",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Bình Thuận"
+    },
+    {
+        "mssv": "SV134",
+        "ho_ten": "Võ Ngọc Oanh",
+        "ngay_sinh": "24/07/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv134oanh@gmail.com",
+        "so_dien_thoai": "0901234694",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Hòa Bình"
+    },
+    {
+        "mssv": "SV135",
+        "ho_ten": "Nguyễn Ngọc Mai",
+        "ngay_sinh": "27/11/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv135mai@gmail.com",
+        "so_dien_thoai": "0901234695",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Quảng Bình"
+    },
+    {
+        "mssv": "SV136",
+        "ho_ten": "Mai Duy Trí",
+        "ngay_sinh": "21/09/2005",
+        "gioi_tinh": "Nam",
+        "email": "sv136trí@gmail.com",
+        "so_dien_thoai": "0901234696",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Gia Lai"
+    },
+    {
+        "mssv": "SV137",
+        "ho_ten": "Lâm Công Bình",
+        "ngay_sinh": "12/08/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv137bình@gmail.com",
+        "so_dien_thoai": "0901234697",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Long An"
+    },
+    {
+        "mssv": "SV138",
+        "ho_ten": "Phạm Ánh Thy",
+        "ngay_sinh": "23/07/2004",
+        "gioi_tinh": "Nữ",
+        "email": "sv138thy@gmail.com",
+        "so_dien_thoai": "0901234698",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Đắk Lắk"
+    },
+    {
+        "mssv": "SV139",
+        "ho_ten": "Mai Thị Ngọc",
+        "ngay_sinh": "09/06/2002",
+        "gioi_tinh": "Nữ",
+        "email": "sv139ngọc@gmail.com",
+        "so_dien_thoai": "0901234699",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Đồng Nai"
+    },
+    {
+        "mssv": "SV140",
+        "ho_ten": "Lâm Ánh Hà",
+        "ngay_sinh": "02/07/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv140hà@gmail.com",
+        "so_dien_thoai": "0901234700",
+        "ma_lop": "CNTT02",
+        "dia_chi": "Ninh Thuận"
+    },
+    {
+        "mssv": "SV141",
+        "ho_ten": "Thái Lan Duyên",
+        "ngay_sinh": "07/01/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv141duyen@gmail.com",
+        "so_dien_thoai": "0901234701",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Hà Tĩnh"
+    },
+    {
+        "mssv": "SV142",
+        "ho_ten": "Đỗ Trung Bình",
+        "ngay_sinh": "21/01/2002",
+        "gioi_tinh": "Nam",
+        "email": "sv142bình@gmail.com",
+        "so_dien_thoai": "0901234702",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Bình Định"
+    },
+    {
+        "mssv": "SV143",
+        "ho_ten": "Đỗ Thành Hùng",
+        "ngay_sinh": "08/02/2005",
+        "gioi_tinh": "Nam",
+        "email": "sv143hùng@gmail.com",
+        "so_dien_thoai": "0901234703",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Kiên Giang"
+    },
+    {
+        "mssv": "SV144",
+        "ho_ten": "Huỳnh Khoa Tài",
+        "ngay_sinh": "10/12/2005",
+        "gioi_tinh": "Nam",
+        "email": "sv144tài@gmail.com",
+        "so_dien_thoai": "0901234704",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Gia Lai"
+    },
+    {
+        "mssv": "SV145",
+        "ho_ten": "Huỳnh Phương Mai",
+        "ngay_sinh": "05/09/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv145mai@gmail.com",
+        "so_dien_thoai": "0901234705",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Thừa Thiên Huế"
+    },
+    {
+        "mssv": "SV146",
+        "ho_ten": "Lê Hoàng Cường",
+        "ngay_sinh": "09/09/2004",
+        "gioi_tinh": "Nam",
+        "email": "sv146cuong@gmail.com",
+        "so_dien_thoai": "0901234706",
+        "ma_lop": "CNTT01",
+        "dia_chi": "Đắk Lắk"
+    },
+    {
+        "mssv": "SV147",
+        "ho_ten": "Hà Diễm Duyên",
+        "ngay_sinh": "18/08/2003",
+        "gioi_tinh": "Nữ",
+        "email": "sv147duyen@gmail.com",
+        "so_dien_thoai": "0901234707",
+        "ma_lop": "CNTT04",
+        "dia_chi": "Tiền Giang"
+    },
+    {
+        "mssv": "SV148",
+        "ho_ten": "Mai Lan Quỳnh",
+        "ngay_sinh": "30/08/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv148quynh@gmail.com",
+        "so_dien_thoai": "0901234708",
+        "ma_lop": "CNTT03",
+        "dia_chi": "Thừa Thiên Huế"
+    },
+    {
+        "mssv": "SV149",
+        "ho_ten": "Lâm Công Tuấn",
+        "ngay_sinh": "11/01/2005",
+        "gioi_tinh": "Nam",
+        "email": "sv149tuan@gmail.com",
+        "so_dien_thoai": "0901234709",
+        "ma_lop": "CNTT06",
+        "dia_chi": "Hậu Giang"
+    },
+    {
+        "mssv": "SV150",
+        "ho_ten": "Đinh Khánh Nhi",
+        "ngay_sinh": "05/01/2005",
+        "gioi_tinh": "Nữ",
+        "email": "sv150nhi@gmail.com",
+        "so_dien_thoai": "0901234710",
+        "ma_lop": "CNTT05",
+        "dia_chi": "Quảng Trị"
     }
 ]
