@@ -144,31 +144,31 @@ class GiaoVienMainView(tk.Tk):
 
     def _load_frame(self, tab_id: str) -> tk.Frame:
         if tab_id == "lich_day":
-            from views.gv_tabs.lich_day_view import LichDayView
+            from views.lich_day_view import LichDayView
             return LichDayView(
                 self._content, self._lop_cua_toi,
                 on_click_lop=lambda ml: self._hien_thi_tab("lop_cua_toi")
             )
         if tab_id == "lop_cua_toi":
-            from views.gv_tabs.lop_cua_toi_view import LopCuaToiView
+            from views.lop_cua_toi_view import LopCuaToiView
             return LopCuaToiView(
                 self._content, self._svcs, self._lop_cua_toi,
                 statusbar=self.statusbar
             )
         if tab_id == "diem_danh":
-            from views.gv_tabs.diem_danh_view import DiemDanhView
+            from views.diem_danh_view import DiemDanhView
             return DiemDanhView(
                 self._content, self._svcs, self._lop_cua_toi,
                 statusbar=self.statusbar
             )
         if tab_id == "nhap_diem":
-            from views.gv_tabs.nhap_diem_view import NhapDiemView
+            from views.nhap_diem_view import NhapDiemView
             return NhapDiemView(
                 self._content, self._svcs, self._lop_cua_toi,
                 statusbar=self.statusbar
             )
         if tab_id == "nhan_xet":
-            from views.gv_tabs.nhan_xet_view import NhanXetView
+            from views.nhan_xet_view import NhanXetView
             return NhanXetView(
                 self._content, self._svcs, self._nd, self._lop_cua_toi,
                 statusbar=self.statusbar
