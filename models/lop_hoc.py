@@ -27,6 +27,13 @@ TIET_GIO_THEO_LOAI = {
 THU_LIST = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật"]
 THU_ORDER = {t: i for i, t in enumerate(THU_LIST)}
 
+TRANG_THAI_LIST = ["Sắp khai giảng", "Đang học", "Đã kết thúc"]
+TRANG_THAI_COLOR = {
+    "Sắp khai giảng": "#F57F17",
+    "Đang học": "#2E7D32",
+    "Đã kết thúc": "#6B7280",
+}
+
 
 def lay_tiet_list(loai_hinh: str) -> list[str]:
     return list(TIET_GIO_THEO_LOAI.get(loai_hinh, TIET_GIO_LY_THUYET).keys())
@@ -82,13 +89,23 @@ class LopHoc(BaseModel):
     LOAI_HINH_LIST = ["Lý thuyết", "Thực hành", "Online"]
 
     def __init__(self, ma_lop: str, ten_mon: str, ma_mon: str, giang_vien: str,
-                 si_so_toi_da: int = 50, loai_hinh: str = "Lý thuyết"):
+                 si_so_toi_da: int = 50, loai_hinh: str = "Lý thuyết",
+                 hoc_ky: str = "1", nam_hoc: str = "2024-2025",
+                 so_tin_chi: int = 3,
+                 ngay_bat_dau: str = "", ngay_ket_thuc: str = "",
+                 trang_thai: str = "Đang học"):
         self.ma_lop = ma_lop.strip().upper()
         self.ten_mon = ten_mon.strip()
         self.ma_mon = ma_mon.strip().upper()
         self.giang_vien = giang_vien.strip()
         self.si_so_toi_da = int(si_so_toi_da)
         self.loai_hinh = loai_hinh.strip()
+        self.hoc_ky = str(hoc_ky).strip()
+        self.nam_hoc = nam_hoc.strip()
+        self.so_tin_chi = int(so_tin_chi) if so_tin_chi else 3
+        self.ngay_bat_dau = ngay_bat_dau.strip()
+        self.ngay_ket_thuc = ngay_ket_thuc.strip()
+        self.trang_thai = trang_thai.strip() if trang_thai in TRANG_THAI_LIST else "Đang học"
         self.danh_sach_mssv: list[str] = []
         self.lich_hoc: list[BuoiHoc] = []
 
@@ -184,6 +201,16 @@ class LopHoc(BaseModel):
     def si_so_hien_tai(self) -> int:
         return len(self.danh_sach_mssv)
 
+    @property
+    def ty_le_si_so(self) -> float:
+        if self.si_so_toi_da == 0:
+            return 0.0
+        return round(self.si_so_hien_tai / self.si_so_toi_da * 100, 1)
+
+    @property
+    def con_cho(self) -> int:
+        return max(0, self.si_so_toi_da - self.si_so_hien_tai)
+
     # Serialization
     def to_dict(self) -> dict:
         return {
@@ -193,6 +220,12 @@ class LopHoc(BaseModel):
             "giang_vien": self.giang_vien,
             "si_so_toi_da": self.si_so_toi_da,
             "loai_hinh": self.loai_hinh,
+            "hoc_ky": self.hoc_ky,
+            "nam_hoc": self.nam_hoc,
+            "so_tin_chi": self.so_tin_chi,
+            "ngay_bat_dau": self.ngay_bat_dau,
+            "ngay_ket_thuc": self.ngay_ket_thuc,
+            "trang_thai": self.trang_thai,
             "lich_hoc": [b.to_dict() for b in self.lich_hoc],
             "danh_sach_mssv": self.danh_sach_mssv,
         }
@@ -206,6 +239,12 @@ class LopHoc(BaseModel):
             giang_vien=data.get("giang_vien", ""),
             si_so_toi_da=data.get("si_so_toi_da", 50),
             loai_hinh=data.get("loai_hinh", "Lý thuyết"),
+            hoc_ky=data.get("hoc_ky", "1"),
+            nam_hoc=data.get("nam_hoc", "2024-2025"),
+            so_tin_chi=data.get("so_tin_chi", 3),
+            ngay_bat_dau=data.get("ngay_bat_dau", ""),
+            ngay_ket_thuc=data.get("ngay_ket_thuc", ""),
+            trang_thai=data.get("trang_thai", "Đang học"),
         )
         obj.danh_sach_mssv = data.get("danh_sach_mssv", [])
 
@@ -224,7 +263,7 @@ class LopHoc(BaseModel):
     def __str__(self) -> str:
         return (f"[{self.ma_lop}] {self.ten_mon} | GV: {self.giang_vien} "
                 f"| {self.si_so_hien_tai}/{self.si_so_toi_da} "
-                f"| {self.loai_hinh} | {self.lich_hoc_str}")
+                f"| {self.loai_hinh} | {self.lich_hoc_str} | {self.trang_thai}")
 
     def __repr__(self) -> str:
         return f"LopHoc(ma_lop={self.ma_lop!r}, ten_mon={self.ten_mon!r})"
