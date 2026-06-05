@@ -1,20 +1,8 @@
-"""
-views/lop_hoc_view.py  —  Nâng cấp toàn diện module Lớp học
-Chức năng:
-  - CRUD lớp học (thêm/sửa/xóa + các trường mới: học kỳ, năm học, tín chỉ, trạng thái, ngày)
-  - Quản lý sinh viên trong lớp (thêm/xóa SV, tìm kiếm SV để thêm)
-  - Xem danh sách SV của lớp
-  - Tìm kiếm/lọc lớp theo mã, tên môn, giảng viên, học kỳ, trạng thái
-  - Thông tin tổng quan lớp (sĩ số, tỷ lệ, trạng thái)
-"""
 import tkinter as tk
 from tkinter import messagebox, ttk
 from views.theme import *
 from views.widgets import AppButton, Card, DataTable, SearchBar, HeadingLabel, FormField
-from models.lop_hoc import (LopHoc, BuoiHoc, THU_LIST,
-                            lay_tiet_list, lay_gio,
-                            TRANG_THAI_LIST, TRANG_THAI_COLOR)
-
+from models.lop_hoc import (LopHoc, BuoiHoc, THU_LIST,lay_tiet_list, lay_gio,TRANG_THAI_LIST, TRANG_THAI_COLOR)
 
 # LichHocPicker
 class LichHocPicker(tk.Frame):
@@ -139,10 +127,8 @@ class LichHocPicker(tk.Frame):
                     pass
 
 
-# Quản lý Sinh viên trong lớp
-
+# QuanLySinhVienPopup
 class QuanLySinhVienPopup(tk.Toplevel):
-
     COLS_DS = [
         ("stt", "STT", 45, "center"),
         ("mssv", "MSSV", 90, "center"),
@@ -173,7 +159,8 @@ class QuanLySinhVienPopup(tk.Toplevel):
         self.resizable(True, True)
 
         self._build_ui()
-        self._tai_ds_sv()
+        self.after(50, self._tai_ds_sv)
+        self.after(50, self._tim_sv)
 
     def _build_ui(self):
         # Header
@@ -185,7 +172,6 @@ class QuanLySinhVienPopup(tk.Toplevel):
                  font=(FONT_FAMILY, 13, "bold"),
                  bg=BG_SIDEBAR, fg=TEXT_WHITE, padx=16).pack(side="left", fill="y")
 
-        # Thông tin tóm tắt
         info_txt = (f"GV: {self._lop.giang_vien}  |  "
                     f"Sĩ số: {self._lop.si_so_hien_tai}/{self._lop.si_so_toi_da}  |  "
                     f"Còn chỗ: {self._lop.con_cho}")
@@ -194,7 +180,7 @@ class QuanLySinhVienPopup(tk.Toplevel):
                                       padx=16)
         self._lbl_info_hdr.pack(side="right", fill="y")
 
-        # notebook 2 tab
+        # Notebook
         nb_style = ttk.Style()
         nb_style.configure("Popup.TNotebook", background=BG_APP, borderwidth=0)
         nb_style.configure("Popup.TNotebook.Tab", font=FONT_BOLD, padding=(16, 8))
@@ -204,13 +190,13 @@ class QuanLySinhVienPopup(tk.Toplevel):
 
         self._tab_ds = tk.Frame(self._nb, bg=BG_APP)
         self._tab_them = tk.Frame(self._nb, bg=BG_APP)
-        self._nb.add(self._tab_ds, text="📋  Danh sách sinh viên")
+        self._nb.add(self._tab_ds, text="📋  Danh sách sinh viên trong lớp")
         self._nb.add(self._tab_them, text="➕  Thêm sinh viên vào lớp")
 
         self._build_tab_ds()
         self._build_tab_them()
 
-        # Statusbar popup
+        # Statusbar
         self._status_lbl = tk.Label(self, text="", font=FONT_SMALL,
                                     bg=BG_SIDEBAR, fg="#A5D6A7",
                                     padx=12, anchor="w", height=2)
@@ -223,8 +209,8 @@ class QuanLySinhVienPopup(tk.Toplevel):
         bar = tk.Frame(p, bg=BG_APP)
         bar.pack(fill="x", pady=(8, 6))
 
-        self._search_ds = SearchBar(bar, placeholder="Tìm trong danh sách...",
-                                    on_search=self._loc_ds)
+        self._search_ds = SearchBar(bar, placeholder="Tìm theo MSSV hoặc họ tên...",
+                                    on_search=lambda kw: self._tai_ds_sv())
         self._search_ds.pack(side="left", fill="x", expand=True, padx=(0, 8))
 
         AppButton(bar, "🗑  Xóa khỏi lớp", style="danger",
@@ -236,6 +222,7 @@ class QuanLySinhVienPopup(tk.Toplevel):
 
         tbl_f = tk.Frame(p, bg=BG_APP)
         tbl_f.pack(fill="both", expand=True)
+
         self._tbl_ds = DataTable(tbl_f, columns=self.COLS_DS, height=18)
         sb = DataTable.them_scrollbar(tbl_f, self._tbl_ds)
         self._tbl_ds.pack(side="left", fill="both", expand=True)
@@ -244,30 +231,33 @@ class QuanLySinhVienPopup(tk.Toplevel):
     def _tai_ds_sv(self):
         self._tbl_ds.xoa_tat_ca()
         sv_svc = self._svcs["sv"]
-        ds = []
+
+        tu_khoa = ""
+        try:
+            tu_khoa = self._search_ds.get().lower()
+        except Exception:
+            pass
+
+        idx = 1
         for mssv in self._lop.danh_sach_mssv:
             sv = sv_svc.tim_theo_khoa(mssv)
-            ds.append(sv)
-
-        # Lọc nếu có từ khóa
-        tu_khoa = self._search_ds.get().lower() if hasattr(self, "_search_ds") else ""
-
-        for i, sv in enumerate(ds):
             if sv is None:
+                if not tu_khoa or tu_khoa in mssv.lower():
+                    self._tbl_ds.chen_hang([idx, mssv, "— Không tìm thấy —",
+                                            "", "", ""])
+                    idx += 1
                 continue
             if tu_khoa and tu_khoa not in sv.ho_ten.lower() and tu_khoa not in sv.mssv.lower():
                 continue
             self._tbl_ds.chen_hang([
-                i + 1, sv.mssv, sv.ho_ten,
+                idx, sv.mssv, sv.ho_ten,
                 sv.gioi_tinh, sv.ngay_sinh, sv.email,
             ])
+            idx += 1
 
-        total = len([s for s in ds if s])
+        total = len(self._lop.danh_sach_mssv)
         self._lbl_stat.config(text=f"Tổng: {total} sinh viên trong lớp")
         self._cap_nhat_header()
-
-    def _loc_ds(self, tu_khoa=""):
-        self._tai_ds_sv()
 
     def _xoa_sv_khoi_lop(self):
         row = self._tbl_ds.lay_hang_chon()
@@ -282,9 +272,9 @@ class QuanLySinhVienPopup(tk.Toplevel):
             return
         ok, msg = self._svcs["lop"].xoa_sv_khoi_lop(self._lop.ma_lop, mssv)
         if ok:
-            # Cập nhật lại object lớp
             self._lop = self._svcs["lop"].tim_theo_khoa(self._lop.ma_lop)
             self._tai_ds_sv()
+            self._tim_sv()
             self._set_status(f"✓ Đã xóa {mssv} khỏi lớp.", "#A5D6A7")
             if self._on_save:
                 self._on_save()
@@ -295,19 +285,19 @@ class QuanLySinhVienPopup(tk.Toplevel):
     def _build_tab_them(self):
         p = self._tab_them
 
-        guide = tk.Label(p,
-                         text="Tìm kiếm sinh viên chưa có trong lớp → Chọn một hoặc nhiều → Nhấn 'Thêm vào lớp'",
-                         font=FONT_SMALL, fg=TEXT_MUTED, bg=BG_APP)
+        guide = tk.Label(
+            p,
+            text="Tìm kiếm sinh viên chưa có trong lớp → Chọn một hoặc nhiều → Nhấn 'Thêm vào lớp'",
+            font=FONT_SMALL, fg=TEXT_MUTED, bg=BG_APP)
         guide.pack(anchor="w", pady=(8, 4))
 
         bar = tk.Frame(p, bg=BG_APP)
         bar.pack(fill="x", pady=(0, 6))
 
         self._search_them = SearchBar(bar, placeholder="Tìm theo MSSV hoặc họ tên...",
-                                      on_search=self._tim_sv)
+                                      on_search=lambda kw: self._tim_sv())
         self._search_them.pack(side="left", fill="x", expand=True, padx=(0, 8))
 
-        # Lọc giới tính
         tk.Label(bar, text="Giới tính:", font=FONT_SMALL,
                  fg=TEXT_MUTED, bg=BG_APP).pack(side="left")
         self._gt_var = tk.StringVar(value="Tất cả")
@@ -326,25 +316,28 @@ class QuanLySinhVienPopup(tk.Toplevel):
 
         tbl_f = tk.Frame(p, bg=BG_APP)
         tbl_f.pack(fill="both", expand=True)
-        self._tbl_tim = DataTable(tbl_f, columns=self.COLS_TIM, height=18,
-                                  selectmode="extended")
+
+        self._tbl_tim = DataTable(tbl_f, columns=self.COLS_TIM,
+                                  height=18, selectmode="extended")
         sb = DataTable.them_scrollbar(tbl_f, self._tbl_tim)
         self._tbl_tim.pack(side="left", fill="both", expand=True)
         sb.pack(side="right", fill="y")
 
-        # Load ngay
-        self._tim_sv()
-
-    def _tim_sv(self, tu_khoa=""):
-        tu_khoa = self._search_them.get() if hasattr(self, "_search_them") else ""
-        gt = self._gt_var.get() if hasattr(self, "_gt_var") else "Tất cả"
+    def _tim_sv(self):
+        """Tìm SV chưa có trong lớp."""
+        tu_khoa = ""
+        gt = "Tất cả"
+        try:
+            tu_khoa = self._search_them.get()
+            gt = self._gt_var.get()
+        except Exception:
+            pass
 
         ds_trong_lop = set(self._lop.danh_sach_mssv)
         tat_ca = self._svcs["sv"].tim_nang_cao(
             tu_khoa=tu_khoa,
             gioi_tinh="" if gt == "Tất cả" else gt,
         )
-        # Loại những SV đã có trong lớp
         chua_co = [sv for sv in tat_ca if sv.mssv not in ds_trong_lop]
 
         self._tbl_tim.xoa_tat_ca()
@@ -352,16 +345,16 @@ class QuanLySinhVienPopup(tk.Toplevel):
             self._tbl_tim.chen_hang([sv.mssv, sv.ho_ten, sv.ma_lop, sv.gioi_tinh])
 
         self._lbl_them_stat.config(
-            text=f"Tìm thấy {len(chua_co)} sinh viên chưa có trong lớp "
+            text=f"Tìm thấy {len(chua_co)} sinh viên chưa có trong lớp  "
                  f"(Ctrl+Click để chọn nhiều)")
 
     def _them_sv_vao_lop(self):
         sel = self._tbl_tim.selection()
         if not sel:
-            messagebox.showwarning("Chưa chọn", "Vui lòng chọn ít nhất một sinh viên.", parent=self)
+            messagebox.showwarning("Chưa chọn",
+                                   "Vui lòng chọn ít nhất một sinh viên.", parent=self)
             return
 
-        # Kiểm tra còn chỗ
         so_chon = len(sel)
         if so_chon > self._lop.con_cho:
             messagebox.showwarning(
@@ -381,7 +374,6 @@ class QuanLySinhVienPopup(tk.Toplevel):
             else:
                 loi_list.append(f"{mssv}: {msg}")
 
-        # Cập nhật lại lop object
         self._lop = self._svcs["lop"].tim_theo_khoa(self._lop.ma_lop)
 
         msg_out = f"✓ Đã thêm {thanh_cong} sinh viên vào lớp."
@@ -389,7 +381,6 @@ class QuanLySinhVienPopup(tk.Toplevel):
             msg_out += f"  ({len(loi_list)} lỗi)"
         self._set_status(msg_out, "#A5D6A7")
 
-        # Refresh cả 2 tab
         self._tai_ds_sv()
         self._tim_sv()
         if self._on_save:
@@ -409,16 +400,16 @@ class QuanLySinhVienPopup(tk.Toplevel):
 # LopHocView
 class LopHocView(tk.Frame):
     COLS = [
-        ("ma_lop", "Mã lớp", 90, "center"),
-        ("ten_mon", "Tên môn", 180, "w"),
-        ("ma_mon", "Mã môn", 75, "center"),
-        ("loai", "Loại hình", 90, "center"),
-        ("gv", "Giảng viên", 155, "w"),
-        ("hk", "Học kỳ", 60, "center"),
-        ("tc", "Tín chỉ", 55, "center"),
-        ("si_so", "Sĩ số", 75, "center"),
-        ("tt", "Trạng thái", 110, "center"),
-        ("lich", "Lịch học", 200, "w"),
+        ("ma_lop", "Mã lớp", 80, "center"),
+        ("ten_mon", "Tên môn", 150, "w"),
+        ("ma_mon", "Mã môn", 70, "center"),
+        ("loai", "Loại hình", 80, "center"),
+        ("gv", "Giảng viên", 140, "w"),
+        ("hk", "HK", 45, "center"),
+        ("tc", "TC", 40, "center"),
+        ("si_so", "Sĩ số", 65, "center"),
+        ("tt", "Trạng thái", 95, "center"),
+        ("lich", "Lịch học", 160, "w"),
     ]
 
     LOAI_HINH = ["Lý thuyết", "Thực hành", "Online"]
@@ -441,7 +432,6 @@ class LopHocView(tk.Frame):
 
     # Layout chính
     def _build_ui(self):
-        # Header
         hdr = tk.Frame(self, bg=BG_APP)
         hdr.pack(fill="x", pady=(0, 8))
         tk.Label(hdr, text="Quản lý Lớp học", font=FONT_TITLE,
@@ -451,11 +441,11 @@ class LopHocView(tk.Frame):
         filter_bar = tk.Frame(self, bg=BG_APP)
         filter_bar.pack(fill="x", pady=(0, 6))
 
-        SearchBar(filter_bar, placeholder="Tìm theo mã lớp, tên môn, giảng viên...",
-                  on_search=self._tim_kiem).pack(side="left", fill="x",
-                                                 expand=True, padx=(0, 8))
+        self._search_bar = SearchBar(filter_bar,
+                                     placeholder="Tìm theo mã lớp, tên môn, giảng viên...",
+                                     on_search=self._tim_kiem)
+        self._search_bar.pack(side="left", fill="x", expand=True, padx=(0, 8))
 
-        # Lọc học kỳ
         tk.Label(filter_bar, text="HK:", font=FONT_SMALL,
                  fg=TEXT_MUTED, bg=BG_APP).pack(side="left")
         self._loc_hk = ttk.Combobox(filter_bar, width=5, state="readonly",
@@ -465,7 +455,6 @@ class LopHocView(tk.Frame):
         self._loc_hk.pack(side="left", padx=(3, 8))
         self._loc_hk.bind("<<ComboboxSelected>>", lambda e: self._tim_kiem())
 
-        # Lọc trạng thái
         tk.Label(filter_bar, text="Trạng thái:", font=FONT_SMALL,
                  fg=TEXT_MUTED, bg=BG_APP).pack(side="left")
         self._loc_tt = ttk.Combobox(filter_bar, width=14, state="readonly",
@@ -475,7 +464,6 @@ class LopHocView(tk.Frame):
         self._loc_tt.pack(side="left", padx=(3, 8))
         self._loc_tt.bind("<<ComboboxSelected>>", lambda e: self._tim_kiem())
 
-        # Lọc loại hình
         tk.Label(filter_bar, text="Loại:", font=FONT_SMALL,
                  fg=TEXT_MUTED, bg=BG_APP).pack(side="left")
         self._loc_loai = ttk.Combobox(filter_bar, width=10, state="readonly",
@@ -490,17 +478,20 @@ class LopHocView(tk.Frame):
         self._build_table(main)
         self._build_form(main)
 
-    # Bảng danh sách lớp
     def _build_table(self, parent):
         left = tk.Frame(parent, bg=BG_APP)
-        left.pack(side="left", fill="both", expand=True, padx=(0, 8))
+        left.pack(side="left", fill="both", expand=True)
+        left.pack_propagate(False)
 
         tbl_frame = tk.Frame(left, bg=BG_APP)
         tbl_frame.pack(fill="both", expand=True)
         self.table = DataTable(tbl_frame, columns=self.COLS, height=17)
-        sb = DataTable.them_scrollbar(tbl_frame, self.table)
+        sb_y = DataTable.them_scrollbar(tbl_frame, self.table)
+        sb_x = ttk.Scrollbar(tbl_frame, orient="horizontal", command=self.table.xview)
+        self.table.configure(xscrollcommand=sb_x.set)
+        sb_x.pack(side="bottom", fill="x")  
+        sb_y.pack(side="right", fill="y")
         self.table.pack(side="left", fill="both", expand=True)
-        sb.pack(side="right", fill="y")
         self.table.bind("<<TreeviewSelect>>", self._on_chon_hang)
 
         btn_row = tk.Frame(left, bg=BG_APP)
@@ -519,17 +510,17 @@ class LopHocView(tk.Frame):
                                    fg=TEXT_MUTED, bg=BG_APP)
         self._lbl_count.pack(side="right", padx=8)
 
-    # Form bên phải
+    # Form
     def _build_form(self, parent):
         right = tk.Frame(parent, bg=BG_CARD,
-                         highlightbackground=BORDER, highlightthickness=1)
+                         highlightbackground=BORDER, highlightthickness=1,
+                         width=560)
         right.pack(side="right", fill="y")
         right.pack_propagate(False)
-        right.config(width=440)
 
-        # Canvas cuộn
+        # Canvas cuộn bên trong
         canvas = tk.Canvas(right, bg=BG_CARD, bd=0,
-                           highlightthickness=0, width=420)
+                           highlightthickness=0)
         vscroll = ttk.Scrollbar(right, orient="vertical", command=canvas.yview)
         canvas.configure(yscrollcommand=vscroll.set)
 
@@ -562,108 +553,92 @@ class LopHocView(tk.Frame):
         # Nhóm 1: Thông tin cơ bản
         self._section(inner, "📋  Thông tin cơ bản")
 
-        self._f_malop = FormField(inner, "Mã lớp *", "VD: CNTT01", required=True)
-        self._f_tenmon = FormField(inner, "Tên môn *", "Lập trình Python", required=True)
-        self._f_mamon = FormField(inner, "Mã môn *", "VD: IT001", required=True)
-        self._f_gv = FormField(inner, "Giảng viên *", "Nguyễn Văn A", required=True)
-        self._f_siso = FormField(inner, "Sĩ số tối đa", "50")
-        for f in [self._f_malop, self._f_tenmon, self._f_mamon,
-                  self._f_gv, self._f_siso]:
-            f.pack(**pad)
+        # 2 cột cho thông tin cơ bản
+        row_basic = tk.Frame(inner, bg=BG_CARD)
+        row_basic.pack(fill="x", padx=16, pady=3)
 
-        # Nhóm 2: Học kỳ / Năm học / Tín chỉ
+        col_left = tk.Frame(row_basic, bg=BG_CARD)
+        col_right = tk.Frame(row_basic, bg=BG_CARD)
+        col_left.pack(side="left", fill="x", expand=True, padx=(0, 8))
+        col_right.pack(side="left", fill="x", expand=True)
+
+        self._f_malop = FormField(col_left, "Mã lớp *", "VD: CNTT01", required=True)
+        self._f_mamon = FormField(col_left, "Mã môn *", "VD: IT001", required=True)
+        self._f_tenmon = FormField(col_right, "Tên môn *", "Lập trình Python", required=True)
+        self._f_gv = FormField(col_right, "Giảng viên *", "Nguyễn Văn A", required=True)
+
+        for f in [self._f_malop, self._f_mamon]:
+            f.pack(fill="x", pady=3)
+        for f in [self._f_tenmon, self._f_gv]:
+            f.pack(fill="x", pady=3)
+
+        self._f_siso = FormField(inner, "Sĩ số tối đa", "50")
+        self._f_siso.pack(**pad)
+
+        # Nhóm 2: Học vụ
         self._section(inner, "📅  Học vụ")
 
         row_hk = tk.Frame(inner, bg=BG_CARD)
         row_hk.pack(fill="x", padx=16, pady=3)
 
-        # Học kỳ
-        col1 = tk.Frame(row_hk, bg=BG_CARD)
-        col1.pack(side="left", fill="x", expand=True, padx=(0, 8))
-        tk.Label(col1, text="Học kỳ *", font=FONT_SMALL,
-                 fg=TEXT_MUTED, bg=BG_CARD).pack(anchor="w")
-        self._hk_var = tk.StringVar(value="1")
-        self._cb_hk = ttk.Combobox(col1, textvariable=self._hk_var,
-                                   values=self.HOC_KY, state="readonly",
-                                   font=FONT_NORMAL, width=6)
-        self._cb_hk.pack(fill="x", pady=(2, 0))
-
-        # Năm học
-        col2 = tk.Frame(row_hk, bg=BG_CARD)
-        col2.pack(side="left", fill="x", expand=True, padx=(0, 8))
-        tk.Label(col2, text="Năm học *", font=FONT_SMALL,
-                 fg=TEXT_MUTED, bg=BG_CARD).pack(anchor="w")
-        self._nh_var = tk.StringVar(value="2024-2025")
-        self._cb_nh = ttk.Combobox(col2, textvariable=self._nh_var,
-                                   values=self.NAM_HOC, font=FONT_NORMAL, width=11)
-        self._cb_nh.pack(fill="x", pady=(2, 0))
-
-        # Tín chỉ
-        col3 = tk.Frame(row_hk, bg=BG_CARD)
-        col3.pack(side="left", fill="x", expand=True)
-        tk.Label(col3, text="Số tín chỉ", font=FONT_SMALL,
-                 fg=TEXT_MUTED, bg=BG_CARD).pack(anchor="w")
-        self._tc_var = tk.StringVar(value="3")
-        self._cb_tc = ttk.Combobox(col3, textvariable=self._tc_var,
-                                   values=self.TIN_CHI, state="readonly",
-                                   font=FONT_NORMAL, width=5)
-        self._cb_tc.pack(fill="x", pady=(2, 0))
+        for label, var_name, values, width in [
+            ("Học kỳ *", "_hk_var", self.HOC_KY, 7),
+            ("Năm học *", "_nh_var", self.NAM_HOC, 12),
+            ("Số tín chỉ", "_tc_var", self.TIN_CHI, 6),
+        ]:
+            col = tk.Frame(row_hk, bg=BG_CARD)
+            col.pack(side="left", fill="x", expand=True, padx=(0, 8))
+            tk.Label(col, text=label, font=FONT_SMALL,
+                     fg=TEXT_MUTED, bg=BG_CARD).pack(anchor="w")
+            var = tk.StringVar(value=values[1] if var_name == "_nh_var" else values[0])
+            setattr(self, var_name, var)
+            state = "normal" if var_name == "_nh_var" else "readonly"
+            cb = ttk.Combobox(col, textvariable=var, values=values,
+                              state=state, font=FONT_NORMAL, width=width)
+            cb.pack(fill="x", pady=(2, 0))
+            setattr(self, var_name.replace("_var", "_cb"), cb)
 
         # Ngày bắt đầu / kết thúc
         row_ng = tk.Frame(inner, bg=BG_CARD)
         row_ng.pack(fill="x", padx=16, pady=3)
-
-        col_bd = tk.Frame(row_ng, bg=BG_CARD)
-        col_bd.pack(side="left", fill="x", expand=True, padx=(0, 8))
-        tk.Label(col_bd, text="Ngày bắt đầu", font=FONT_SMALL,
-                 fg=TEXT_MUTED, bg=BG_CARD).pack(anchor="w")
-        self._f_ngay_bd = tk.Entry(col_bd, font=FONT_NORMAL,
-                                   relief="solid", bd=1)
-        self._f_ngay_bd.pack(fill="x", pady=(2, 0), ipady=4)
-
-        col_kt = tk.Frame(row_ng, bg=BG_CARD)
-        col_kt.pack(side="left", fill="x", expand=True)
-        tk.Label(col_kt, text="Ngày kết thúc", font=FONT_SMALL,
-                 fg=TEXT_MUTED, bg=BG_CARD).pack(anchor="w")
-        self._f_ngay_kt = tk.Entry(col_kt, font=FONT_NORMAL,
-                                   relief="solid", bd=1)
-        self._f_ngay_kt.pack(fill="x", pady=(2, 0), ipady=4)
+        for label, attr in [("Ngày bắt đầu", "_f_ngay_bd"),
+                            ("Ngày kết thúc", "_f_ngay_kt")]:
+            col = tk.Frame(row_ng, bg=BG_CARD)
+            col.pack(side="left", fill="x", expand=True, padx=(0, 8))
+            tk.Label(col, text=label, font=FONT_SMALL,
+                     fg=TEXT_MUTED, bg=BG_CARD).pack(anchor="w")
+            ent = tk.Entry(col, font=FONT_NORMAL, relief="solid", bd=1)
+            ent.pack(fill="x", pady=(2, 0), ipady=4)
+            setattr(self, attr, ent)
 
         # Nhóm 3: Trạng thái
         self._section(inner, "🏷  Trạng thái lớp")
-
         tt_frame = tk.Frame(inner, bg=BG_CARD)
         tt_frame.pack(fill="x", padx=16, pady=(4, 8))
         self._tt_btns: dict[str, tk.Button] = {}
         for tt in TRANG_THAI_LIST:
             color = TRANG_THAI_COLOR[tt]
-            btn = tk.Button(
-                tt_frame, text=tt, font=FONT_SMALL,
-                relief="flat", cursor="hand2", padx=10, pady=5,
-                command=lambda t=tt: self._chon_trang_thai(t)
-            )
+            btn = tk.Button(tt_frame, text=tt, font=FONT_SMALL,
+                            relief="flat", cursor="hand2", padx=10, pady=5,
+                            command=lambda t=tt: self._chon_trang_thai(t))
             btn.pack(side="left", padx=(0, 6))
             self._tt_btns[tt] = btn
         self._chon_trang_thai("Đang học")
 
         # Nhóm 4: Loại hình
         self._section(inner, "🎓  Loại hình học")
-
         loai_frame = tk.Frame(inner, bg=BG_CARD)
         loai_frame.pack(anchor="w", padx=16, pady=(4, 0))
         self._loai_btns: dict[str, tk.Button] = {}
         for loai in self.LOAI_HINH:
-            btn = tk.Button(
-                loai_frame, text=loai, font=FONT_SMALL,
-                relief="flat", cursor="hand2", padx=12, pady=5,
-                command=lambda l=loai: self._chon_loai(l)
-            )
+            btn = tk.Button(loai_frame, text=loai, font=FONT_SMALL,
+                            relief="flat", cursor="hand2", padx=12, pady=5,
+                            command=lambda l=loai: self._chon_loai(l))
             btn.pack(side="left", padx=(0, 4))
             self._loai_btns[loai] = btn
         self._cap_nhat_loai_btn("Lý thuyết")
 
-        self._lbl_loai_hint = tk.Label(inner,
-                                       text="(Lý thuyết: 3 tiết/buổi)",
+        self._lbl_loai_hint = tk.Label(inner, text="(Lý thuyết: 3 tiết/buổi)",
                                        font=FONT_SMALL, fg=PRIMARY, bg=BG_CARD)
         self._lbl_loai_hint.pack(anchor="w", padx=16, pady=(2, 0))
 
@@ -676,9 +651,7 @@ class LopHocView(tk.Frame):
             tk.Label(col_hdr, text=text, font=FONT_SMALL, fg=TEXT_MUTED,
                      bg=BG_CARD, width=w // 7, anchor="w").pack(side="left", padx=2)
 
-        self._lich_picker = LichHocPicker(inner,
-                                          loai_hinh_var=self._loai_var,
-                                          bg=BG_CARD)
+        self._lich_picker = LichHocPicker(inner, loai_hinh_var=self._loai_var, bg=BG_CARD)
         self._lich_picker.pack(fill="x", padx=16, pady=(0, 12))
 
         tk.Frame(inner, bg=BORDER, height=1).pack(fill="x", padx=16, pady=(0, 8))
@@ -691,11 +664,9 @@ class LopHocView(tk.Frame):
                   command=self._huy).pack(side="left", fill="x", expand=True)
 
     def _section(self, parent, title: str):
-        """Tiêu đề phân đoạn trong form."""
         f = tk.Frame(parent, bg=BG_CARD)
         f.pack(fill="x", padx=16, pady=(12, 4))
-        tk.Label(f, text=title, font=FONT_BOLD, fg=PRIMARY,
-                 bg=BG_CARD).pack(side="left")
+        tk.Label(f, text=title, font=FONT_BOLD, fg=PRIMARY, bg=BG_CARD).pack(side="left")
         tk.Frame(f, bg=BORDER, height=1).pack(side="left", fill="x",
                                               expand=True, padx=(8, 0), pady=6)
 
@@ -734,9 +705,9 @@ class LopHocView(tk.Frame):
             f.disable()
         self._f_ngay_bd.config(state="disabled")
         self._f_ngay_kt.config(state="disabled")
-        self._cb_hk.config(state="disabled")
-        self._cb_nh.config(state="disabled")
-        self._cb_tc.config(state="disabled")
+        self._hk_cb.config(state="disabled")
+        self._nh_cb.config(state="disabled")
+        self._tc_cb.config(state="disabled")
         self._lich_picker.set_state(False)
         for btn in self._loai_btns.values():
             btn.config(state="disabled", cursor="arrow")
@@ -752,9 +723,9 @@ class LopHocView(tk.Frame):
             self._f_malop.enable()
         self._f_ngay_bd.config(state="normal")
         self._f_ngay_kt.config(state="normal")
-        self._cb_hk.config(state="readonly")
-        self._cb_nh.config(state="normal")
-        self._cb_tc.config(state="readonly")
+        self._hk_cb.config(state="readonly")
+        self._nh_cb.config(state="normal")
+        self._tc_cb.config(state="readonly")
         self._lich_picker.set_state(True)
         for btn in self._loai_btns.values():
             btn.config(state="normal", cursor="hand2")
@@ -767,7 +738,6 @@ class LopHocView(tk.Frame):
             ds = self._lop_svc.lay_tat_ca()
         self.table.xoa_tat_ca()
         for lop in ds:
-            tt_color = TRANG_THAI_COLOR.get(getattr(lop, "trang_thai", "Đang học"), "#333")
             self.table.chen_hang([
                 lop.ma_lop, lop.ten_mon, lop.ma_mon,
                 getattr(lop, "loai_hinh", "Lý thuyết"),
@@ -781,8 +751,12 @@ class LopHocView(tk.Frame):
         self._lbl_count.config(text=f"Tổng: {len(ds)} lớp")
 
     def _tim_kiem(self, tu_khoa=""):
-        from views.widgets import SearchBar as SB
         # Lấy từ khóa từ thanh search
+        try:
+            tu_khoa = self._search_bar.get()
+        except Exception:
+            pass
+
         hk_chon = self._loc_hk.get()
         tt_chon = self._loc_tt.get()
         loai_chon = self._loc_loai.get()
@@ -827,14 +801,12 @@ class LopHocView(tk.Frame):
 
         ngay_bd = getattr(lop, "ngay_bat_dau", "")
         ngay_kt = getattr(lop, "ngay_ket_thuc", "")
-        self._f_ngay_bd.config(state="normal")
-        self._f_ngay_kt.config(state="normal")
-        self._f_ngay_bd.delete(0, "end")
-        self._f_ngay_bd.insert(0, ngay_bd)
-        self._f_ngay_kt.delete(0, "end")
-        self._f_ngay_kt.insert(0, ngay_kt)
-        self._f_ngay_bd.config(state="disabled")
-        self._f_ngay_kt.config(state="disabled")
+        for ent, val in [(self._f_ngay_bd, ngay_bd),
+                         (self._f_ngay_kt, ngay_kt)]:
+            ent.config(state="normal")
+            ent.delete(0, "end")
+            ent.insert(0, val)
+            ent.config(state="disabled")
 
         self._chon_trang_thai(getattr(lop, "trang_thai", "Đang học"))
         loai = getattr(lop, "loai_hinh", "Lý thuyết")
@@ -851,10 +823,9 @@ class LopHocView(tk.Frame):
         self._hk_var.set("1")
         self._nh_var.set("2024-2025")
         self._tc_var.set("3")
-        self._f_ngay_bd.config(state="normal")
-        self._f_ngay_kt.config(state="normal")
-        self._f_ngay_bd.delete(0, "end")
-        self._f_ngay_kt.delete(0, "end")
+        for ent in [self._f_ngay_bd, self._f_ngay_kt]:
+            ent.config(state="normal")
+            ent.delete(0, "end")
         self._chon_trang_thai("Đang học")
         self._chon_loai("Lý thuyết")
         self._lich_picker.xoa_tat_ca()

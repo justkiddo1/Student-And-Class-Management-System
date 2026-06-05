@@ -5,21 +5,26 @@
         "ma_mon": "IT001",
         "giang_vien": "Phan Thị Ngọc Mai",
         "si_so_toi_da": 60,
-        "phong_hoc": "A105",
         "loai_hinh": "Lý thuyết",
+        "hoc_ky": "1",
+        "nam_hoc": "2024-2025",
+        "so_tin_chi": 3,
+        "ngay_bat_dau": "",
+        "ngay_ket_thuc": "",
+        "trang_thai": "Đang học",
         "lich_hoc": [
-          {
-            "thu": "Thứ 2",
-            "tiet": "Tiết 7-9",
-            "gio": "12h30 - 14h45",
-            "phong": "A105"
-          },
-          {
-            "thu": "Thứ 5",
-            "tiet": "Tiết 7-9",
-            "gio": "12h30 - 14h45",
-            "phong": "A105"
-          }
+            {
+                "thu": "Thứ 2",
+                "tiet": "Tiết 7-9",
+                "gio": "12h30 - 14h45",
+                "phong": "A105"
+            },
+            {
+                "thu": "Thứ 5",
+                "tiet": "Tiết 7-9",
+                "gio": "12h30 - 14h45",
+                "phong": "A105"
+            }
         ],
         "danh_sach_mssv": [
             "SV003",
@@ -53,15 +58,20 @@
         "ma_mon": "IT002",
         "giang_vien": "Lâm Thị Họa Mi",
         "si_so_toi_da": 60,
-        "phong_hoc": "A211",
         "loai_hinh": "Lý thuyết",
+        "hoc_ky": "1",
+        "nam_hoc": "2024-2025",
+        "so_tin_chi": 3,
+        "ngay_bat_dau": "",
+        "ngay_ket_thuc": "",
+        "trang_thai": "Đang học",
         "lich_hoc": [
-          {
-            "thu": "Thứ 3",
-            "tiet": "Tiết 4-6",
-            "gio": "9h45 - 11h50",
-            "phong": "A211"
-          }
+            {
+                "thu": "Thứ 3",
+                "tiet": "Tiết 4-6",
+                "gio": "9h45 - 11h50",
+                "phong": "A211"
+            }
         ],
         "danh_sach_mssv": [
             "SV002",
@@ -99,21 +109,26 @@
         "ma_mon": "IT003",
         "giang_vien": "Vũ Văn Vinh",
         "si_so_toi_da": 60,
-        "phong_hoc": "A307",
         "loai_hinh": "Lý thuyết",
+        "hoc_ky": "1",
+        "nam_hoc": "2024-2025",
+        "so_tin_chi": 3,
+        "ngay_bat_dau": "",
+        "ngay_ket_thuc": "",
+        "trang_thai": "Đang học",
         "lich_hoc": [
-          {
-            "thu": "Thứ 2",
-            "tiet": "Tiết 1-3",
-            "gio": "7h00 - 9h20",
-            "phong": "A307"
-          },
-          {
-            "thu": "Thứ 4",
-            "tiet": "Tiết 1-3",
-            "gio": "7h00 - 9h20",
-            "phong": "A307"
-          }
+            {
+                "thu": "Thứ 2",
+                "tiet": "Tiết 1-3",
+                "gio": "7h00 - 9h20",
+                "phong": "A307"
+            },
+            {
+                "thu": "Thứ 4",
+                "tiet": "Tiết 1-3",
+                "gio": "7h00 - 9h20",
+                "phong": "A307"
+            }
         ],
         "danh_sach_mssv": [
             "SV001",
@@ -159,21 +174,26 @@
         "ma_mon": "IT004",
         "giang_vien": "Phan Thanh Truyền",
         "si_so_toi_da": 60,
-        "phong_hoc": "A211",
         "loai_hinh": "Thực hành",
+        "hoc_ky": "1",
+        "nam_hoc": "2024-2025",
+        "so_tin_chi": 3,
+        "ngay_bat_dau": "",
+        "ngay_ket_thuc": "",
+        "trang_thai": "Đang học",
         "lich_hoc": [
-          {
-            "thu": "Thứ 4",
-            "tiet": "Tiết 7-9",
-            "gio": "12h30 - 14h45",
-            "phong": "B201"
-          },
-          {
-            "thu": "Thứ 6",
-            "tiet": "Tiết 7-9",
-            "gio": "12h30 - 14h45",
-            "phong": "B201"
-          }
+            {
+                "thu": "Thứ 4",
+                "tiet": "Tiết 7-9",
+                "gio": "12h30 - 14h45",
+                "phong": "B201"
+            },
+            {
+                "thu": "Thứ 6",
+                "tiet": "Tiết 7-9",
+                "gio": "12h30 - 14h45",
+                "phong": "B201"
+            }
         ],
         "danh_sach_mssv": [
             "SV002",
@@ -215,15 +235,20 @@
         "ma_mon": "IT005",
         "giang_vien": "Ngô Quốc Huy",
         "si_so_toi_da": 60,
-        "phong_hoc": "B401",
         "loai_hinh": "Thực hành",
+        "hoc_ky": "1",
+        "nam_hoc": "2024-2025",
+        "so_tin_chi": 3,
+        "ngay_bat_dau": "",
+        "ngay_ket_thuc": "",
+        "trang_thai": "Đang học",
         "lich_hoc": [
-          {
-            "thu": "Thứ 3",
-            "tiet": "Tiết 10-12",
-            "gio": "15h00 - 17h20",
-            "phong": "B401"
-          }
+            {
+                "thu": "Thứ 3",
+                "tiet": "Tiết 10-12",
+                "gio": "15h00 - 17h20",
+                "phong": "B401"
+            }
         ],
         "danh_sach_mssv": [
             "SV001",
@@ -259,7 +284,8 @@
             "SV131",
             "SV142",
             "SV144",
-            "SV150"
+            "SV150",
+            "SV002"
         ]
     },
     {
@@ -268,21 +294,26 @@
         "ma_mon": "IT006",
         "giang_vien": "Nguyễn Thị Hồng Thảo",
         "si_so_toi_da": 60,
-        "phong_hoc": "A102",
         "loai_hinh": "Lý thuyết",
+        "hoc_ky": "1",
+        "nam_hoc": "2024-2025",
+        "so_tin_chi": 3,
+        "ngay_bat_dau": "",
+        "ngay_ket_thuc": "",
+        "trang_thai": "Đang học",
         "lich_hoc": [
-          {
-            "thu": "Thứ 5",
-            "tiet": "Tiết 4-6",
-            "gio": "9h45 - 11h50",
-            "phong": "A102"
-          },
-          {
-            "thu": "Thứ 7",
-            "tiet": "Tiết 4-6",
-            "gio": "9h45 - 11h50",
-            "phong": "A102"
-          }
+            {
+                "thu": "Thứ 5",
+                "tiet": "Tiết 4-6",
+                "gio": "9h45 - 11h50",
+                "phong": "A102"
+            },
+            {
+                "thu": "Thứ 7",
+                "tiet": "Tiết 4-6",
+                "gio": "9h45 - 11h50",
+                "phong": "A102"
+            }
         ],
         "danh_sach_mssv": [
             "SV001",

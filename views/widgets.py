@@ -54,10 +54,9 @@ class PlaceholderEntry(tk.Entry):
 
         self._setup_placeholder()
 
-        # Bind events
         self.bind("<FocusIn>", self._on_focus_in)
         self.bind("<FocusOut>", self._on_focus_out)
-        self.bind("<KeyPress>", self._on_key_press)  # Thêm cái này
+        self.bind("<KeyPress>", self._on_key_press)
 
     def _setup_placeholder(self):
         self.config(fg=TEXT_MUTED, show="")
@@ -99,6 +98,7 @@ class PlaceholderEntry(tk.Entry):
         self.delete(0, tk.END)
         self._setup_placeholder()
 
+
 # ── Card ─────────────────────────────────────────────────────────────────────
 class Card(tk.Frame):
     def __init__(self, parent, **kw):
@@ -111,10 +111,14 @@ class Card(tk.Frame):
 
 # ── DataTable ────────────────────────────────────────────────────────────────
 class DataTable(ttk.Treeview):
-    def __init__(self, parent, columns: list[tuple], height=15, **kw):
+    def __init__(self, parent, columns: list, height=15, selectmode="browse", **kw):
+        """
+        columns: list of (id, header, width, anchor)
+        selectmode: "browse" (single) hoặc "extended" (multi)
+        """
         col_ids = [c[0] for c in columns]
         super().__init__(parent, columns=col_ids, show="headings",
-                         height=height, selectmode="browse", **kw)
+                         height=height, selectmode=selectmode, **kw)
 
         style = ttk.Style()
         style.theme_use("clam")
