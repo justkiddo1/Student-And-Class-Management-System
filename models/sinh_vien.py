@@ -1,5 +1,5 @@
 import re
-from datetime import datetime
+from datetime import datetime, date
 from models.base_model import BaseModel
 
 
@@ -21,22 +21,63 @@ class SinhVien(BaseModel):
         if not self.mssv:
             return False, "Mã số sinh viên không được để trống."
 
+        if not re.fullmatch(r"SV\d+",self.mssv):
+            return False, ("Mã số sinh viên không hợp lệ.\n" "Định dạng bắt đầu bằng 'SV' và theo sau là chữ số (VD: SV001, SV002).")
+
         if not self.ho_ten:
             return False, "Họ tên không được để trống."
+        if re.search(r"[0-9]", self.ho_ten):
+            return False, "Họ và tên không được chứa chữ số."
+        if re.search(r"[^\w\s\-]", self.ho_ten, flags=re.UNICODE):
+            return False, "Họ và tên không được chứa ký tự đặc biệt."
+        if re.search(r"[_]", self.ho_ten):
+            return False, "Họ và tên không được chứa ký tự đặc biệt."
+        if len(self.ho_ten.strip()) < 2:
+            return False, "Họ và tên phải có ít nhất 2 ký tự."
 
+        if not self.ngay_sinh:
+            return False, "Ngày sinh không được để trống."
         if not re.fullmatch(r"\d{2}/\d{2}/\d{4}", self.ngay_sinh):
-            return False, "Ngày sinh phải có định dạng DD/MM/YYYY."
+            return False, "Ngày sinh phải có định dạng DD/MM/YYYY (VD: 15/08/2003)."
 
         try:
-            datetime.strptime(self.ngay_sinh, "%d/%m/%Y")
+            ngay_sinh_dt = datetime.strptime(self.ngay_sinh, "%d/%m/%Y").date()
         except ValueError:
-            return False, "Ngày sinh không hợp lệ."
-        if not re.fullmatch(r"[^@]+@[^@]+\.[^@]+", self.email):
-            return False, "Email không hợp lệ."
+            return False, "Ngày sinh không hợp lệ (ngày/tháng không tồn tại)."
+
+        hom_nay = date.today()
+        if ngay_sinh_dt > hom_nay:
+            return False, "Ngày sinh không được lớn hơn ngày hiện tại."
+
+        tuoi = (hom_nay.year - ngay_sinh_dt.year
+                - ((hom_nay.month, hom_nay.day) < (ngay_sinh_dt.month, ngay_sinh_dt.day)))
+        if tuoi < 18:
+            return False, (
+                f"Sinh viên phải đủ 18 tuổi trở lên.\n"
+                f"Ngày sinh {self.ngay_sinh} cho tuổi hiện tại là {tuoi}."
+            )
+
+        if not self.email:
+            return False, "Email không được để trống."
+        if not re.fullmatch(
+                r"[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}",
+                self.email
+        ):
+            return False, (
+                "Email không hợp lệ.\n"
+                "Định dạng đúng: tenmail@domain.com (VD: sinhvien@gmail.com)."
+            )
+
+        if not self.so_dien_thoai:
+            return False, "Số điện thoại không được để trống."
         if not re.fullmatch(r"0\d{9}", self.so_dien_thoai):
-            return False, "Số điện thoại phải bắt đầu bằng 0 và có 10 chữ số."
+            return False, (
+                "Số điện thoại không hợp lệ.\n"
+                "Yêu cầu: đúng 10 chữ số, bắt đầu bằng 0 (VD: 0901234567)."
+            )
+
         if not self.ma_lop:
-            return False, "Mã lớp không được để trống."
+            return False, "Vui lòng chọn lớp học."
         return True, ""
 
     def to_dict(self) -> dict:
@@ -66,8 +107,10 @@ class SinhVien(BaseModel):
 
     def tuoi(self) -> int:
         try:
-            ngay = datetime.strptime(self.ngay_sinh, "%d/%m/%Y")
-            return datetime.now().year - ngay.year
+            ngay = datetime.strptime(self.ngay_sinh, "%d/%m/%Y").date()
+            hom_nay = date.today()
+            return (hom_nay.year - ngay.year
+                    - ((hom_nay.month, hom_nay.day) < (ngay.month, ngay.day)))
         except ValueError:
             return 0
 
