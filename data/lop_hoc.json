@@ -6,11 +6,11 @@
         "giang_vien": "Phan Thị Ngọc Mai",
         "si_so_toi_da": 60,
         "loai_hinh": "Lý thuyết",
-        "hoc_ky": "1",
-        "nam_hoc": "2024-2025",
+        "hoc_ky": "Hè",
+        "nam_hoc": "2025-2026",
         "so_tin_chi": 3,
-        "ngay_bat_dau": "",
-        "ngay_ket_thuc": "",
+        "ngay_bat_dau": "02/06/2026",
+        "ngay_ket_thuc": "31/07/2026",
         "trang_thai": "Đang học",
         "lich_hoc": [
             {
@@ -54,16 +54,16 @@
     },
     {
         "ma_lop": "CNTT02",
-        "ten_mon": "Công nghệ .NET",
+        "ten_mon": "Công nghệ NET",
         "ma_mon": "IT002",
         "giang_vien": "Lâm Thị Họa Mi",
         "si_so_toi_da": 60,
         "loai_hinh": "Lý thuyết",
-        "hoc_ky": "1",
-        "nam_hoc": "2024-2025",
+        "hoc_ky": "Hè",
+        "nam_hoc": "2025-2026",
         "so_tin_chi": 3,
-        "ngay_bat_dau": "",
-        "ngay_ket_thuc": "",
+        "ngay_bat_dau": "02/06/2026",
+        "ngay_ket_thuc": "31/07/2026",
         "trang_thai": "Đang học",
         "lich_hoc": [
             {
@@ -110,11 +110,11 @@
         "giang_vien": "Vũ Văn Vinh",
         "si_so_toi_da": 60,
         "loai_hinh": "Lý thuyết",
-        "hoc_ky": "1",
-        "nam_hoc": "2024-2025",
+        "hoc_ky": "Hè",
+        "nam_hoc": "2025-2026",
         "so_tin_chi": 3,
-        "ngay_bat_dau": "",
-        "ngay_ket_thuc": "",
+        "ngay_bat_dau": "02/06/2026",
+        "ngay_ket_thuc": "31/07/2026",
         "trang_thai": "Đang học",
         "lich_hoc": [
             {
@@ -175,23 +175,23 @@
         "giang_vien": "Phan Thanh Truyền",
         "si_so_toi_da": 60,
         "loai_hinh": "Thực hành",
-        "hoc_ky": "1",
-        "nam_hoc": "2024-2025",
+        "hoc_ky": "Hè",
+        "nam_hoc": "2025-2026",
         "so_tin_chi": 3,
-        "ngay_bat_dau": "",
-        "ngay_ket_thuc": "",
+        "ngay_bat_dau": "02/06/2026",
+        "ngay_ket_thuc": "31/07/2026",
         "trang_thai": "Đang học",
         "lich_hoc": [
             {
                 "thu": "Thứ 4",
-                "tiet": "Tiết 7-9",
-                "gio": "12h30 - 14h45",
+                "tiet": "Tiết 7-11",
+                "gio": "12h30 - 16h20",
                 "phong": "B201"
             },
             {
                 "thu": "Thứ 6",
-                "tiet": "Tiết 7-9",
-                "gio": "12h30 - 14h45",
+                "tiet": "Tiết 7-11",
+                "gio": "12h30 - 16h20",
                 "phong": "B201"
             }
         ],
@@ -236,17 +236,17 @@
         "giang_vien": "Ngô Quốc Huy",
         "si_so_toi_da": 60,
         "loai_hinh": "Thực hành",
-        "hoc_ky": "1",
-        "nam_hoc": "2024-2025",
+        "hoc_ky": "Hè",
+        "nam_hoc": "2025-2026",
         "so_tin_chi": 3,
-        "ngay_bat_dau": "",
-        "ngay_ket_thuc": "",
+        "ngay_bat_dau": "02/06/2026",
+        "ngay_ket_thuc": "31/07/2026",
         "trang_thai": "Đang học",
         "lich_hoc": [
             {
                 "thu": "Thứ 3",
-                "tiet": "Tiết 10-12",
-                "gio": "15h00 - 17h20",
+                "tiet": "Tiết 7-11",
+                "gio": "12h30 - 16h20",
                 "phong": "B401"
             }
         ],
@@ -295,11 +295,11 @@
         "giang_vien": "Nguyễn Thị Hồng Thảo",
         "si_so_toi_da": 60,
         "loai_hinh": "Lý thuyết",
-        "hoc_ky": "1",
-        "nam_hoc": "2024-2025",
+        "hoc_ky": "Hè",
+        "nam_hoc": "2025-2026",
         "so_tin_chi": 3,
-        "ngay_bat_dau": "",
-        "ngay_ket_thuc": "",
+        "ngay_bat_dau": "02/06/2026",
+        "ngay_ket_thuc": "31/07/2026",
         "trang_thai": "Đang học",
         "lich_hoc": [
             {
@@ -347,6 +347,68 @@
             "SV119",
             "SV130",
             "SV149"
+        ]
+    },
+    {
+        "ma_lop": "CNTT07",
+        "ten_mon": "Thực hành an toàn mạng máy tính",
+        "ma_mon": "IT007",
+        "giang_vien": "Phạm Anh Tuấn",
+        "si_so_toi_da": 30,
+        "loai_hinh": "Thực hành",
+        "hoc_ky": "Hè",
+        "nam_hoc": "2025-2026",
+        "so_tin_chi": 1,
+        "ngay_bat_dau": "",
+        "ngay_ket_thuc": "",
+        "trang_thai": "Đang học",
+        "lich_hoc": [
+            {
+                "thu": "Thứ 2",
+                "tiet": "Tiết 1-5",
+                "gio": "7h00 - 10h50",
+                "phong": "A102"
+            }
+        ],
+        "danh_sach_mssv": []
+    },
+    {
+        "ma_lop": "CNTT08",
+        "ten_mon": "Hệ quản trị cơ sở dữ liệu",
+        "ma_mon": "IT008",
+        "giang_vien": "Trần Quang Bình",
+        "si_so_toi_da": 32,
+        "loai_hinh": "Lý thuyết",
+        "hoc_ky": "Hè",
+        "nam_hoc": "2025-2026",
+        "so_tin_chi": 2,
+        "ngay_bat_dau": "",
+        "ngay_ket_thuc": "",
+        "trang_thai": "Đang học",
+        "lich_hoc": [
+            {
+                "thu": "Thứ 4",
+                "tiet": "Tiết 7-9",
+                "gio": "12h30 - 14h45",
+                "phong": "A204"
+            }
+        ],
+        "danh_sach_mssv": [
+            "SV008",
+            "SV009",
+            "SV011",
+            "SV013",
+            "SV001",
+            "SV003",
+            "SV005",
+            "SV014",
+            "SV017",
+            "SV079",
+            "SV080",
+            "SV083",
+            "SV085",
+            "SV087",
+            "SV089"
         ]
     }
 ]
