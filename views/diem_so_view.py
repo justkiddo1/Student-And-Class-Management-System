@@ -19,13 +19,14 @@ class DiemSoView(tk.Frame):
         ("kq", "Kết quả", 80, "center"),
     ]
 
-    def __init__(self, parent, services, statusbar):
+    def __init__(self, parent, services, statusbar, lop_filter: list[str] | None = None):
         super().__init__(parent, bg=BG_APP)
         self._ds_svc = services["diem"]
         self._lop_svc = services["lop"]
         self._sv_svc = services["sv"]
         self._status = statusbar
-        self._mode = None  # None | add | edit
+        self._lop_filter = lop_filter
+        self._mode = None
         self._ma_lop_hien_tai = tk.StringVar()
         self._lop_display_map: dict[str, str] = {}
         self._build_ui()
@@ -44,7 +45,8 @@ class DiemSoView(tk.Frame):
 
         tk.Label(lop_bar, text="Chọn lớp:", font=FONT_BOLD,fg=TEXT_MAIN, bg=BG_APP).pack(side="left", padx=(0, 8))
 
-        self._cb_lop = ttk.Combobox(lop_bar, textvariable=self._ma_lop_hien_tai,state="readonly", font=FONT_NORMAL, width=32)
+        self._cb_lop = ttk.Combobox(lop_bar, textvariable=self._ma_lop_hien_tai,
+                                    state="readonly", font=FONT_NORMAL, width=32)
         self._cb_lop.pack(side="left")
         self._cb_lop.bind("<<ComboboxSelected>>", lambda e: self._on_chon_lop())
 
@@ -53,11 +55,11 @@ class DiemSoView(tk.Frame):
         self._lbl_tk = tk.Label(lop_bar, text="", font=FONT_SMALL,fg=TEXT_MUTED, bg=BG_APP)
         self._lbl_tk.pack(side="right")
 
+        # Body: bảng + form
         main = tk.Frame(self, bg=BG_APP)
         main.pack(fill="both", expand=True)
         self._build_table(main)
         self._build_form(main)
-
         self._cap_nhat_cb_lop()
 
     # Bảng điểm
@@ -70,7 +72,9 @@ class DiemSoView(tk.Frame):
 
         self.table = DataTable(tbl_f, columns=self.COLS, height=18)
 
+        # Scrollbar dọc
         sb_y = DataTable.them_scrollbar(tbl_f, self.table)
+        # Scrollbar ngang
         sb_x = ttk.Scrollbar(tbl_f, orient="horizontal",command=self.table.xview)
         self.table.configure(xscrollcommand=sb_x.set)
 
@@ -96,14 +100,15 @@ class DiemSoView(tk.Frame):
         self._form_title = HeadingLabel(right, "Chi tiết điểm", bg=BG_CARD)
         self._form_title.pack(anchor="w", pady=(0, 10))
 
-        # MSSV
-        tk.Label(right, text="Sinh viên *", font=FONT_SMALL,fg=TEXT_MUTED, bg=BG_CARD).pack(anchor="w")
+        # Combobox MSSV
+        tk.Label(right, text="Sinh viên *", font=FONT_SMALL,
+                 fg=TEXT_MUTED, bg=BG_CARD).pack(anchor="w")
         self._sv_var = tk.StringVar()
         self._cb_sv = ttk.Combobox(right, textvariable=self._sv_var,state="disabled", font=FONT_NORMAL, width=26)
         self._cb_sv.pack(fill="x", pady=(2, 10))
 
-        # Điểm thành phần
-        self._section_lbl = tk.Label(right, text="── Điểm thành phần ──", font=FONT_SMALL, fg=TEXT_MUTED, bg=BG_CARD)
+        # Section: Điểm thành phần
+        self._section_lbl = tk.Label(right, text="── Điểm thành phần ──",font=FONT_SMALL, fg=TEXT_MUTED, bg=BG_CARD)
         self._section_lbl.pack(anchor="w", pady=(0, 4))
 
         self._f_cc = FormField(right, "Chuyên cần (0–10)", "0 - 10")
@@ -115,7 +120,7 @@ class DiemSoView(tk.Frame):
         for f in [self._f_cc, self._f_kt1, self._f_kt2, self._f_tl, self._f_ck]:
             f.pack(fill="x", pady=3)
 
-        # Hiển thị điểm tự tính
+        # Hiển thị điểm tự tính (readonly)
         gk_row = tk.Frame(right, bg=BG_CARD)
         gk_row.pack(fill="x", pady=(6, 0))
         tk.Label(gk_row, text="→ Điểm GK tự tính:",font=FONT_SMALL, fg=TEXT_MUTED, bg=BG_CARD).pack(side="left")
@@ -136,7 +141,7 @@ class DiemSoView(tk.Frame):
         btn_row = tk.Frame(right, bg=BG_CARD)
         btn_row.pack(fill="x", pady=(4, 0))
         AppButton(btn_row, "Lưu", style="primary", icon=ICON["save"],command=self._luu).pack(side="left", fill="x",expand=True, padx=(0, 4))
-        AppButton(btn_row, "Hủy", style="ghost",command=self._huy).pack(side="left", fill="x", expand=True)
+        AppButton(btn_row, "Hủy", style="ghost", command=self._huy).pack(side="left", fill="x", expand=True)
 
     def _section(self, parent, title):
         f = tk.Frame(parent, bg=BG_CARD)
@@ -149,6 +154,8 @@ class DiemSoView(tk.Frame):
         self._lop_display_map.clear()
         ds = []
         for lop in self._lop_svc.lay_tat_ca():
+            if self._lop_filter is not None and lop.ma_lop not in self._lop_filter:
+                continue
             display = f"{lop.ma_lop}  —  {lop.ten_mon}"
             self._lop_display_map[display] = lop.ma_lop
             ds.append(display)
@@ -193,7 +200,6 @@ class DiemSoView(tk.Frame):
                     text=f"TB: {tb}  |  Đậu: {ti_le}%  |  {len(bang_diem)} SV")
             else:
                 self._lbl_tk.config(text=f"{len(bang_diem)} sinh viên — chưa có điểm")
-        # Cập nhật combobox SV khi ở chế độ add
         if self._mode == "add":
             self._cap_nhat_cb_sv_chua_co_diem(ma_lop)
 
@@ -231,7 +237,6 @@ class DiemSoView(tk.Frame):
                     "Cuối kỳ": "—", "Tổng kết": None,
                     "Xếp loại": "Chưa có điểm", "Kết quả": "Chưa xác định",
                 })
-        # Sắp xếp: có điểm tổng kết giảm dần, chưa có điểm xuống cuối
         ket_qua.sort(key=lambda r: (
             r["Tổng kết"] is None,
             -(r["Tổng kết"] or 0),
@@ -247,7 +252,7 @@ class DiemSoView(tk.Frame):
         for mssv in lop.danh_sach_mssv:
             ds = self._ds_svc.tim_diem(mssv, ma_lop)
             if ds and ds.diem_tong_ket is not None:
-                continue
+                continue  # đã có đủ điểm, bỏ qua
             sv = self._sv_svc.tim_theo_khoa(mssv)
             ten = sv.ho_ten if sv else ""
             items.append(f"{mssv}  —  {ten}")
